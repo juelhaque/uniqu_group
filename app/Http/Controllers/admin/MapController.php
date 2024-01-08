@@ -18,8 +18,7 @@ class MapController extends Controller
     public function update($id, Request $request){
 
         try {
-            $mapp = Map::find($id);
-
+            $mapp=Map::find($id);
             $mapp->map = $request->map;
             $mapp->update();
             return redirect()->route('dashboard')->with('success', 'Update Successful');

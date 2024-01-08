@@ -5,7 +5,7 @@
             @include('message')
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Company Profile</h1>
+                    <h1>Banners</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('dashboard') }}" class="btn btn-primary">Back</a>
@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-body table-responsive p-0">
                     <div class="p-3">
-                        <form action="{{ route('company_profile.update') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('company_profile.update')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row justify-content-start">
@@ -62,44 +62,107 @@
                                 </div>
                                 <div class="col-6 mb-1">
                                     <label for="aboutDescription" class="mt-2">About Description</label>
-                                    <textarea class="form-control form-control-sm" name="about_description" id="editor"cols="4"
-                                        rows="4">{{ old('about_description', $details->about_description) }}</textarea>
+                                    <textarea class="form-control form-control-sm" name="about_description" id="editor"cols="4" rows="4">{{ old('about_description', $details->about_description) }}</textarea>
+                                </div>
+
+                                <div class="col-6 mb-1">
+                                    <label for="about_title" class="form-label">Business sector icon class</label>
+                                    <input type="text" class="form-control form-control-sm" name="business_sector1_icon"
+                                        id="about_title" value="{{ old('about_title', $details->business_sector1_icon) }}">
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <label for="about_title" class="form-label">Business sector Title</label>
+                                    <input type="text" class="form-control form-control-sm" name="business_sector1_title"
+                                        id="about_title"
+                                        value="{{ old('business_sector1_title', $details->business_sector1_title) }}">
                                 </div>
                                 <div class="col-6 mb-1">
                                     <div>
-                                        <label for="professional_repair_description" class="mt-2">Professional Repair Description</label>
-                                        <textarea class="form-control form-control-sm" name="professional_repair_description" id="professional_repair_description"cols="5"
-                                        rows="5">{{ old('professional_repair_description', $details->professional_repair_description) }}</textarea>
+                                        <label for="professional_repair_description" class="mt-2">Business Sector
+                                            Details</label>
+                                        <textarea class="form-control form-control-sm" name="business_sector1_details" id=""cols="5"
+                                            rows="5">{{ old('business_sector1_details', $details->business_sector1_details) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-1">
-                                    <div class="row mt-2">
-                                        <div class="col-sm-6 mb-1 mt-2">
-                                            <div class="form-check mb-2">
-                                                <label for="file">About Image</label><br>
-                                                <input type="file" name="about_image" accept="image/*"
-                                                    onchange="readURL(this)" />
-                                            </div>
-                                            <img id="img-preview" src="{{ asset($details->about_image) }}" width="200px" height="150px" />
-                                        </div>
-                                        <div class="col-sm-6 mb-1 mt-2">
-                                            <div class="form-check mb-2">
-                                                <label for="file">Company Logo</label><br>
-                                                <input type="file" name="company_logo" accept="image/*"
-                                                    onchange="readURL2(this)" />
-                                            </div>
-                                            <img id="img-preview2" src="{{ asset($details->company_logo) }}" width="200px" height="150px" />
-                                        </div>
-                                        <div class="col-sm-6 mb-1 mt-5">
-                                            <div class="form-check mb-2">
-                                                <label for="file">Professional Repair Image</label><br>
-                                                <input type="file" name="professional_repair_image" accept="image/*"
-                                                    onchange="readURL3(this)" />
-                                            </div>
-                                            <img id="img-preview3" src="{{ asset($details->professional_repair_image) }}" width="200px" height="150px" />
-                                        </div>
+                                    <label for="about_title" class="form-label">Business sector2 icon class</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                        name="business_sector2_icon" id="about_title"
+                                        value="{{ old('business_sector2_icon', $details->business_sector2_icon) }}">
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <label for="about_title" class="form-label">Business sector2 Title</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                        name="business_sector2_title" id="about_title"
+                                        value="{{ old('business_sector2_title', $details->business_sector2_title) }}">
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <div>
+                                        <label for="professional_repair_description" class="mt-2">Business Sector2
+                                            Details</label>
+                                        <textarea class="form-control form-control-sm" name="business_sector2_details" id=""cols="5"
+                                            rows="5">{{ old('business_sector2_details', $details->business_sector2_details) }}</textarea>
                                     </div>
                                 </div>
+
+
+                                <div class="col-sm-6 mb-1 mt-2">
+                                    <div class="form-check mb-2">
+                                        <label for="file">About Image</label><br>
+                                        <input type="file" name="about_image" accept="image/*"
+                                            onchange="readURL(this)" />
+                                    </div>
+                                    <img id="img-preview" src="{{ asset($details->about_image) }}" width="200px"
+                                        height="150px" />
+                                </div>
+
+
+                                <div class="col-sm-6 mb-1 mt-2">
+                                    <div class="form-check mb-2">
+                                        <label for="file">About Image2</label><br>
+                                        <input type="file" name="about_image2" accept="image/*"
+                                            onchange="readURL2(this)" />
+                                    </div>
+                                    <img id="img-preview2" src="{{asset($details->about_image2) }}" width="200px"
+                                        height="150px" />
+                                </div>
+
+
+
+
+                                <div class="col-6 mb-1">
+                                    <div class="form-check mb-2">
+                                        <label for="file">About Image3</label><br>
+                                        <input type="file" name="about_image3" accept="image/*"
+                                            onchange="readURL3(this)" />
+                                    </div>
+                                    <img id="img-preview3" src="{{asset($details->about_image3) }}" width="200px"
+                                        height="150px" />
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <div class="form-check mb-2">
+                                        <label for="file">About Image4</label><br>
+                                        <input type="file" name="about_image4" accept="image/*"
+                                            onchange="readURL4(this)" />
+                                    </div>
+                                    <img id="img-preview4" src="{{ asset($details->about_image4) }}" width="200px"
+                                        height="150px" />
+                                </div>
+
+
+
+
+
+                                <div class="col-sm-6 mb-1 mt-2">
+                                    <div class="form-check mb-2">
+                                        <label for="file">Company Logo</label><br>
+                                        <input type="file" name="company_logo" accept="image/*"
+                                            onchange="readURL5(this)" />
+                                    </div>
+                                    <img id="img-preview5" src="{{ asset($details->company_logo) }}" width="200px"
+                                        height="150px" />
+                                </div>
+
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
@@ -163,6 +226,32 @@
                 reader.readAsDataURL(input.files[0]);
             } else {
                 $("#img-preview3").attr("src", noimage);
+            }
+        }
+        function readURL4(input) {
+            console.log(input.files);
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#img-preview4").attr("src", e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                $("#img-preview4").attr("src", noimage);
+            }
+        }
+        function readURL5(input) {
+            console.log(input.files);
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#img-preview5").attr("src", e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                $("#img-preview5").attr("src", noimage);
             }
         }
     </script>

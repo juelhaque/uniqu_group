@@ -8,44 +8,42 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-    public function index(){
-        $messages = Message::paginate(8);
-        return view('admin.message.index', compact('messages'));
+    public function index()
+    {
+        $message = Message::first();
+        return view('admin.message.index', compact('message'));
     }
 
-    public function store(Request $request){
 
-        // return $request->all();
-        $request->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'subject' => 'required|max:255',
-            'message' => 'required'
-        ]);
-
+    public function update(Request $request)
+    {
         try {
-            $messages = new Message;
-            $messages->name = $request->name;
-            $messages->email = $request->email;
-            $messages->phone = $request->phone;
-            $messages->subject = $request->subject;
-            $messages->message = $request->message;
-            $messages->save();
+            $message = Message::first();
 
-            return redirect()->back()->with('success', 'Message Send Successfully');
+            $message->name = $request->name;
+            $message->email = $request->email;
+            $message->phone = $request->phone;
+            $message->designation = $request->designation;
+            $message->message = $request->message;
 
+
+            if ($request->hasfile('image')) {
+                if (file_exists($message->image) && $message->image != null) {
+                    unlink($message->image);
+                }
+                $image = $request->file('image');
+                $ext = $image->getClientOriginalExtension();
+                $imageName = rand() . "." . $ext;
+                $image->move('uploads/message', $imageName);
+                $message->about_image = 'uploads/message/' . $imageName;
+            }
+
+            $message->update();
+
+            return redirect()->route('dashboard')->with('success', 'Update Successful');
         } catch (\Throwable $th) {
-            //throw $th;
-            return redirect()->back()->with('error', 'Message Delivered fail');
+            throw $th;
+            // return redirect()->back()->with('error', 'Update failed');
         }
-    }
-
-
-    public function destroy($id){
-
-        $messages = Message::find($id);
-        $messages->delete();
-        return Redirect()->back()->with("success", "Message Deleted Successfully");
     }
 }

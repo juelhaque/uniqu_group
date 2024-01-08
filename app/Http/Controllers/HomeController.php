@@ -23,6 +23,36 @@ class HomeController extends Controller
     }
 
 
+    public function message()
+    {
+        return view('frontend.message');
+
+    }
+
+
+    public function mission()
+    {
+        return view('frontend.mission');
+    }
+
+
+    public function governance()
+    {
+        return view('frontend.governance');
+
+
+    }
+    public function managment()
+    {
+        return view('frontend.managment');
+    }
+
+    public function culture()
+    {
+        return view('frontend.culture');
+    }
+
+
 
     public function contact()
     {
