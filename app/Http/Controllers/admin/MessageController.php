@@ -11,7 +11,7 @@ class MessageController extends Controller
     public function index()
     {
         $message = Message::first();
-        return view('admin.message.index', compact('message'));
+        return view('admin.director_message.index', compact('message'));
     }
 
 
@@ -35,7 +35,7 @@ class MessageController extends Controller
                 $ext = $image->getClientOriginalExtension();
                 $imageName = rand() . "." . $ext;
                 $image->move('uploads/message', $imageName);
-                $message->about_image = 'uploads/message/' . $imageName;
+                $message->image = 'uploads/message/' . $imageName;
             }
 
             $message->update();

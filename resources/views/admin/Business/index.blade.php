@@ -5,10 +5,10 @@
             @include('message')
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Business Sector</h1>
+                    <h1>Business Companies</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('business.create') }}" class="btn btn-primary">New Business sector</a>
+                    <a href="{{ route('business.create') }}" class="btn btn-primary">New Business company</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,10 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Business Image</th>
+                                    <th>Business company Name</th>
+                                    <th>Business company Link</th>
+                                    <th>Image</th>
+                                    <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -38,8 +41,10 @@
                                 @foreach ($business as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ asset($item->image) }}" class="img-thumbnail"
-                                                width="70" style="height: 40px"></td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->link }}</td>
+                                        <td><img src="{{asset($item->image)}}" class="img-thumbnail" width="70" style="height: 40px"></td>
+                                        <td>{{Illuminate\Support\Str::limit($item->description, 20)}}</td>
                                         <td>
                                             <a href="{{ route('business.edit', $item->id) }}">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"

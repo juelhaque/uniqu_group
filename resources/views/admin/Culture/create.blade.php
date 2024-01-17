@@ -15,7 +15,6 @@
 </section>
 <!-- Main content -->
 <section class="content">
-    <!-- Default box -->
     <div class="container-fluid">
         <div class="card">
             <div class="card-body table-responsive p-0">
@@ -23,16 +22,17 @@
                     <form action="{{route('culture.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                             <div class="row">
-                                <div class="col-md-10 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="icon" class="form-label">Culture Icon Class</label>
                                     <input type="text" class="form-control" name="icon" id="icon" value="" placeholder="Enter icon Class">
                                     <label for="title" class="form-label">Title</label>
                                     <input type="text" class="form-control" name="title" id="title" value="" placeholder="Enter Title">
+                                </div>
+                                <div class="col-md-6 mb-3">
                                     <label for="title" class="form-label">Details</label>
                                     <textarea type="text" class="form-control" name="details" id="editor" value="" placeholder="Enter Details"> </textarea>
                                 </div>
                             </div>
-
                             <br>
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>
@@ -40,7 +40,6 @@
             </div>
         </div>
     </div>
-    <!-- /.card -->
 </section>
 @endsection
 @push('admin-js')

@@ -15,8 +15,9 @@ class CreateNewsEventsTable extends Migration
     {
         Schema::create('news_events', function (Blueprint $table) {
             $table->id();
-            $table->text('image');
-            $table->text('title');
+            $table->string('image');
+            $table->dateTime('date');
+            $table->string('title');
             $table->longText('details');
             $table->timestamps();
         });

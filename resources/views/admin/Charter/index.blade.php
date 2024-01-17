@@ -25,11 +25,16 @@
                             @csrf
                             @method('PUT')
                             <div class="row justify-content-start">
-                                <div class="col-11 mb-1">
-                                    <label for="about_title" class="form-label">Charter Details</label>
+                                <div class="col-12 mb-1">
+                                    <label for="details" class="form-label">Charter Details</label>
                                     <textarea type="text" class="form-control form-control-sm" name="details"
                                         id="editor" >{!!$charter->details!!}</textarea>
                                 </div>
+                                {{-- <div class="col-12 mb-1">
+                                    <label for="we_value" class="form-label">We Value</label>
+                                    <textarea type="text" class="form-control form-control-sm" name="we_value"
+                                        id="editor2" >{!!$charter->we_value!!}</textarea>
+                                </div> --}}
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
@@ -47,6 +52,11 @@
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editor2'))
             .catch(error => {
                 console.error(error);
             });

@@ -11,11 +11,9 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- Main content -->
+
     <section class="content">
-        <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body table-responsive p-0">
@@ -24,17 +22,16 @@
                             @csrf
                             @method('PUT')
                             <div class="row">
-                                <div class="col-md-10 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="icon"   class="form-label">Culture Icon Class</label>
                                     <input type="text" class="form-control" name="icon" id="icon" value="{{ old('icon', $culture->icon) }}" placeholder="Enter culture icon class">
                                     <label for="title"   class="form-label">Title</label>
                                     <input type="text" class="form-control" name="title" id="title" value="{{ old('title', $culture->title) }}" placeholder="Enter Title">
+                                </div>
+                                <div class="col-md-6 mb-3">
                                     <label for="title" class="form-label">Details</label>
                                     <textarea type="text" class="form-control" name="details" id="editor" value="{{ old('details', $culture->details) }}" placeholder="Enter Details">{!!$culture->details!!} </textarea>
-
-
                                 </div>
-
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
@@ -43,7 +40,6 @@
                 </div>
             </div>
         </div>
-        <!-- /.card -->
     </section>
 @endsection
 @push('admin-js')

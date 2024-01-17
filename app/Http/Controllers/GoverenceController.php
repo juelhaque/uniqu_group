@@ -26,9 +26,6 @@ class GoverenceController extends Controller
         try {
             $governence = new Governence();
             $governence->title = $request->title;
-            $governence->details = $request->details;
-
-
             if ($request->hasfile('image')) {
                 $image = $request->file('image');
                 $ext = $image->getClientOriginalExtension();
@@ -43,25 +40,20 @@ class GoverenceController extends Controller
             // throw $th;
             return redirect()->back()->with('error', 'Insert failed');
         }
-
     }
 
 
-    public function edit($id){
-
+    public function edit($id)
+    {
         $governence = Governence::find($id);
         return view('admin.Governence.edit', compact('governence'));
     }
 
 
     public function update($id, Request $request){
-
         try {
             $governence = Governence::find($id);
-
             $governence->title = $request->title;
-            $governence->details = $request->details;
-
             if ($request->hasfile('image')) {
 
                 if(file_exists($governence->image) && $governence->image != null) {
@@ -81,12 +73,10 @@ class GoverenceController extends Controller
             // throw $th;
             return redirect()->back()->with('error', 'Update failed');
         }
-
     }
 
 
     public function delete($id){
-
         try {
             $governence = Governence::find($id);
             if (file_exists($governence->image) && $governence->image != null) {
@@ -99,6 +89,5 @@ class GoverenceController extends Controller
             //throw $th;
             return redirect()->back()->with('error', 'Deleted failed');
         }
-
     }
 }

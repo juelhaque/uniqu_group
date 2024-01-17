@@ -5,7 +5,7 @@
             @include('message')
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Company Profile</h1>
+                    <h1>Banner</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('dashboard') }}" class="btn btn-primary">Back</a>
@@ -29,7 +29,7 @@
                                     <div class="row mt-3">
                                         <div class="col-sm-6 mb-1 mt-2">
                                             <div class="form-check mb-2">
-                                                <label for="file">About Banner</label><br>
+                                                <label for="file">Business Query Image</label><br>
                                                 <input type="file" name="about_banner" accept="image/*"
                                                     onchange="readURL(this)" />
                                             </div>

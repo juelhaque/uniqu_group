@@ -4,7 +4,7 @@
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Business Sector Update</h1>
+                    <h1>Business Company Update</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('business.index') }}" class="btn btn-primary">Back</a>
@@ -24,10 +24,25 @@
                             @csrf
                             @method('PUT')
                             <div class="row">
-                                <div class="col-md-6 mb-3 form-check">
+                                <div class="col-md-6 mb-3">
+                                    <label for="link" class="form-label">Name</label>
+                                    <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $business->name) }}" placeholder="Business Name">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="link" class="form-label">Link</label>
+                                    <input type="url" class="form-control" name="link" id="link" value="{{ old('link', $business->link) }}" placeholder="Business Link">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control form-control-sm" name="description" id="editor"cols="4"
+                                        rows="4">{{ old('description', $business->description) }}</textarea>
+                                </div>
+                                <div class="col-md-6 mb-1 form-check">
                                     <label for="file">Image</label>
                                     <input type="file" name="image" accept="image/*" onchange="readURL(this)" />
-                                    <img id="img-preview" src="{{ asset($business_image->business_image) }}" width="250px" height="180px" />
+                                    <img id="img-preview"
+                                        src="{{ asset($business->image) }}"
+                                        width="250px" />
                                 </div>
                             </div>
                             <br>

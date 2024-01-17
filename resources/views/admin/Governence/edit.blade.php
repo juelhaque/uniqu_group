@@ -11,11 +11,9 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- Main content -->
     <section class="content">
-        <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body table-responsive p-0">
@@ -27,13 +25,11 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="title" class="form-label">Title</label>
-                                    <input type="text" class="form-control" name="title" id="name"
+                                    <input type="text" class="form-control" name="title" id="title"
                                         value="{{ old('title', $governence->title) }}" placeholder="Enter Title">
-                                    <label for="title" class="form-label">Details</label>
+                                    {{-- <label for="title" class="form-label">Details</label>
                                     <textarea type="text" class="form-control" name="details" id="editor"
-                                        value="{{ old('details', $governence->details) }}" placeholder="Enter Details">{!!$governence->details!!}</textarea>
-
-
+                                        value="{{ old('details', $governence->details) }}" placeholder="Enter Details">{!!$governence->details!!}</textarea> --}}
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label style="margin-top:2rem" for="file">Image Size <span
@@ -57,13 +53,13 @@
 
 @push('admin-js')
     <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
-    <script>
+    {{-- <script>
         ClassicEditor
             .create(document.querySelector('#editor'))
             .catch(error => {
                 console.error(error);
             });
-    </script>
+    </script> --}}
     <script>
         let noimage = "https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
 

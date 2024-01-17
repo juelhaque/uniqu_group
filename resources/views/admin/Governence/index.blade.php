@@ -12,11 +12,8 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- Main content -->
     <section class="content">
-        <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
@@ -31,7 +28,6 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>Details</th>
                                     <th>Image</th>
                                     <th>Action</th>
                                 </tr>
@@ -41,10 +37,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td>{{ $item->details }}</td>
                                         <td><img src="{{ asset($item->image) }}" class="img-thumbnail" width="70"
                                                 style="height: 40px"></td>
-
                                         <td>
                                             <a href="{{ route('governence.edit', $item->id) }}">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"
@@ -78,6 +72,5 @@
                 </div>
             </div>
         </div>
-        <!-- /.card -->
     </section>
 @endsection

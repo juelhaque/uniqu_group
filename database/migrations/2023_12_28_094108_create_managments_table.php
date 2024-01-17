@@ -18,11 +18,10 @@ class CreateManagmentsTable extends Migration
             $table->text('image');
             $table->string('name');
             $table->string('designation');
-            $table->string('Email');
-            $table->longText('facebook');
-            $table->longText('linkdin');
-            $table->longText('twitter');
-            $table->longText('phone');
+            $table->string('facebook');
+            $table->string('linkdin');
+            $table->string('twitter');
+            $table->text('speech')->nullable();
             $table->timestamps();
         });
     }

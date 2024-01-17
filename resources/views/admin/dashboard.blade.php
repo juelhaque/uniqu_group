@@ -25,13 +25,13 @@
             <div class="col-lg-3 col-6 text-center">
                 <div class="small-box card">
                     <div class="inner">
-                        <h4><b>Total Banner</b></h4>
-                        <h3>{{$Banners}}</h3>
+                        <h4><b>Business Entities</b></h4>
+                        <h3>{{$business_entities}}</h3>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="" class="small-box-footer text-light" style="background: #55548d">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('business.index') }}" class="small-box-footer text-light" style="background: #55548d">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="" class="small-box-footer text-light" style="background: #55548d">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('hotel.index') }}" class="small-box-footer text-light" style="background: #55548d">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -70,7 +70,7 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="" class="small-box-footer text-light" style="background: #55548d">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('video-gallery.index') }}" class="small-box-footer text-light" style="background: #55548d">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 

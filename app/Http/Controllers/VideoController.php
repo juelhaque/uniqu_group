@@ -9,50 +9,54 @@ use Illuminate\Http\Request;
 class VideoController extends Controller
 {
 
-    public function index()
-    {
+    public function index(){
 
-        $video = Video::latest()->paginate(8);
-        return view('admin.Video.index', compact('video'));
+        $videoGalleries = Video::orderBy('rank', 'ASC')->latest()->paginate(10);
+        return view('admin.video.index', compact('videoGalleries'));
     }
 
-    public function create()
-    {
 
-        return view('admin.Video.create');
+    public function create(){
+
+        return view('admin.video.create');
     }
 
-    public function store(Request $request)
-    {
+
+    public function store(Request $request){
+
         try {
-            $video = new Video();
-            $video->video_url = $request->video_url;
-            $video->save();
-            return redirect()->route('video.index')->with('success', 'Insert Successful');
+            $videoGalleries = new Video();
+            $videoGalleries->title = $request->title;
+            $videoGalleries->rank = $request->rank;
+            $videoGalleries->video = $request->video;
+
+            $videoGalleries->save();
+            return redirect()->route('video-gallery.index')->with('success', 'Insert Successful');
 
         } catch (\Throwable $th) {
             // throw $th;
             return redirect()->back()->with('error', 'Insert failed');
         }
-
     }
 
-    public function edit($id)
-    {
 
-        $video = video::find($id);
-        return view('admin.Video.edit', compact('video'));
+    public function edit($id){
+
+        $videoGallery = Video::find($id);
+        return view('admin.video.edit', compact('videoGallery'));
     }
 
-    public function update($id, Request $request)
-    {
+
+    public function update($id, Request $request){
 
         try {
-            $video = Video::find($id);
-            $video->video_url = $request->video_url;
+            $videoGalleries = Video::find($id);
+            $videoGalleries->title = $request->title;
+            $videoGalleries->rank = $request->rank;
+            $videoGalleries->video = $request->video;
 
-            $video->update();
-            return redirect()->route('video.index')->with('success', 'Update Successful');
+            $videoGalleries->update();
+            return redirect()->route('video-gallery.index')->with('success', 'Update Successful');
 
         } catch (\Throwable $th) {
             // throw $th;
@@ -61,13 +65,15 @@ class VideoController extends Controller
 
     }
 
-    public function delete($id)
-    {
+
+    public function destroy($id){
 
         try {
-            $video = Video::find($id);
-            $video->delete();
-            return redirect()->route('video.index')->with('success', 'Deleted Successful');
+            $videoGalleries = Video::find($id);
+
+            $videoGalleries->delete();
+
+            return redirect()->route('video-gallery.index')->with('success', 'Deleted Successful');
 
         } catch (\Throwable $th) {
             //throw $th;

@@ -12,11 +12,9 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- Main content -->
     <section class="content">
-        <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
@@ -30,8 +28,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Details</th>
                                     <th>Image</th>
+                                    <th>Details</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -39,10 +37,8 @@
                                 @foreach ($social as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{!! $item->details !!}</td>
-                                        <td><img src="{{ asset($item->image) }}" class="img-thumbnail" width="70"
-                                                style="height: 40px"></td>
-
+                                        <td><img src="{{ asset($item->image) }}" class="img-thumbnail" width="70" style="height: 40px"></td>
+                                        <td>{!!Illuminate\Support\Str::limit($item->details, 70)!!}</td>
                                         <td>
                                             <a href="{{ route('social.edit', $item->id) }}">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"

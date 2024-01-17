@@ -15,7 +15,10 @@ class CreateBusinessesTable extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
-            $table->text('image');
+            $table->string('name');
+            $table->string('link');
+            $table->text('description');
+            $table->string('image');
             $table->timestamps();
         });
     }

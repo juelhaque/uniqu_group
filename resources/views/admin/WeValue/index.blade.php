@@ -8,7 +8,7 @@
                     <h1>Charter value Information</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('value.create') }}" class="btn btn-primary">New Value Create</a>
+                    <a href="" class="btn btn-primary">New Value Create</a>
                 </div>
             </div>
         </div>
@@ -40,11 +40,11 @@
                                 @foreach ($value as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->icon }}</td>
+                                        <td>{{ $item->icon_class }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td>{{ $item->details }}</td>
+                                        <td>{!! $item->details !!}</td>
                                         <td>
-                                            <a href="{{ route('value.edit', $item->id) }}">
+                                            <a href="">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="currentColor" aria-hidden="true">
@@ -53,7 +53,7 @@
                                                     </path>
                                                 </svg>
                                             </a>
-                                            <a href="{{ route('value.delete', $item->id) }}"
+                                            <a href=""
                                                 onclick="return confirm('Are You Sure?')" class="text-danger w-4 h-4 mr-1">
                                                 <svg wire:loading.remove.delay="" wire:target=""
                                                     class="filament-link-icon w-4 h-4 mr-1"
@@ -72,10 +72,9 @@
                     </div>
                 </div>
                 <div class="card-footer clearfix d-flex justify-content-end">
-                    {{ $value->links('pagination::bootstrap-4') }}
+                    {{-- {{ $value->links('pagination::bootstrap-4') }} --}}
                 </div>
             </div>
         </div>
-        <!-- /.card -->
     </section>
 @endsection

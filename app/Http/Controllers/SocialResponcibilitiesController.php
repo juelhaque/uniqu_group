@@ -37,7 +37,7 @@ class SocialResponcibilitiesController extends Controller
                 $social->image = 'uploads/social/' . $imageName;
             }
             $social->save();
-          
+
             return redirect()->route('social.index')->with('success', 'Insert Successful');
 
         } catch (\Throwable $th) {
@@ -74,7 +74,7 @@ class SocialResponcibilitiesController extends Controller
             }
 
             $social->update();
-            return redirect()->route('hotel.index')->with('success', 'Update Successful');
+            return redirect()->route('social.index')->with('success', 'Update Successful');
 
         } catch (\Throwable $th) {
             // throw $th;
@@ -92,7 +92,7 @@ class SocialResponcibilitiesController extends Controller
                 unlink($social->image);
             }
             $social->delete();
-            return redirect()->route('hotel.index')->with('success', 'Deleted Successful');
+            return redirect()->route('social.index')->with('success', 'Deleted Successful');
 
         } catch (\Throwable $th) {
             //throw $th;

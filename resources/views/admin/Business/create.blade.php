@@ -4,7 +4,7 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Business Section Create</h1>
+                <h1>Business Company Name Create</h1>
             </div>
             <div class="col-sm-6 text-right">
                 <a href="{{route('business.index')}}" class="btn btn-primary">Back</a>
@@ -22,13 +22,28 @@
                 <div class="p-3">
                     <form action="{{route('business.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                            <div class="row">
-                                <div class="col-md-6 mb-3 form-check">
-                                    <label for="file">Image Size <span style="color: red">(219*106)</span>px</label>
-                                    <input type="file" name="image" accept="image/*" onchange="readURL(this)" required/>
-                                    <img id="img-preview" src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png" width="250px" height="180px" />
-                                </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="link" class="form-label">Name</label>
+                                <input type="text" class="form-control" name="name" id="name" value="" placeholder="Business Name">
                             </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="link" class="form-label">Link</label>
+                                <input type="url" class="form-control" name="link" id="link" value="" placeholder="Business Link">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control form-control-sm" name="description" id="editor"cols="4"
+                                    rows="8"></textarea>
+                            </div>
+                            <div class="col-md-6 mb-1 form-check">
+                                <label for="file">Image</label>
+                                <input type="file" name="image" accept="image/*" onchange="readURL(this)" />
+                                <img id="img-preview"
+                                    src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png"
+                                    width="250px" />
+                            </div>
+                        </div>
                             <br>
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>

@@ -20,23 +20,25 @@
         <div class="card">
             <div class="card-body table-responsive p-0">
                 <div class="p-3">
-                    <form action="{{route('hotel.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('event.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
+                                    <label for="date" class="form-label">Date</label>
+                                    <input type="date" class="form-control" name="date" id="date" value="" placeholder="Enter date">
+
                                     <label for="title" class="form-label">Title</label>
-                                    <input type="text" class="form-control" name="title" id="name" value="" placeholder="Enter Title">
-                                    <label for="title" class="form-label">Details</label>
+                                    <input type="text" class="form-control" name="title" id="title" value="" placeholder="Enter Title">
+
+                                    <label for="details" class="form-label">Details</label>
                                     <textarea type="text" class="form-control" name="details" id="editor" value="" placeholder="Enter Details"></textarea>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label  for="file">Image Size <span style="color: red">(330*247)</span>px</label>
                                     <input type="file" name="image" accept="image/*" onchange="readURL(this)" required/>
                                     <img id="img-preview" src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png" width="250px" height="180px" />
-
                                 </div>
                             </div>
-
                             <br>
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>
@@ -61,17 +63,17 @@
         let noimage = "https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
 
             function readURL(input) {
-            console.log(input.files);
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                $("#img-preview").attr("src", e.target.result);
-                };
+                console.log(input.files);
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                    $("#img-preview").attr("src", e.target.result);
+                    };
 
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                $("#img-preview").attr("src", noimage);
-            }
+                    reader.readAsDataURL(input.files[0]);
+                } else {
+                    $("#img-preview").attr("src", noimage);
+                }
             }
     </script>
 @endpush

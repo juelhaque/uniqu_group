@@ -42,7 +42,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->icon }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td>{{ $item->details }}</td>
+                                        <td>{!! Illuminate\Support\Str::limit($item->details, 50) !!}</td>
                                         <td>
                                             <a href="{{ route('culture.edit', $item->id) }}">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"

@@ -26,9 +26,9 @@ class NewsEventController extends Controller
 
         try {
             $NewsEvent = new NewsEvent();
+            $NewsEvent->date = $request->date;
             $NewsEvent->title = $request->title;
             $NewsEvent->details = $request->details;
-
 
             if ($request->hasfile('image')) {
                 $image = $request->file('image');
@@ -44,7 +44,6 @@ class NewsEventController extends Controller
             // throw $th;
             return redirect()->back()->with('error', 'Insert failed');
         }
-
     }
 
 
@@ -60,6 +59,7 @@ class NewsEventController extends Controller
         try {
             $NewsEvent = NewsEvent::find($id);
 
+            $NewsEvent->date = $request->date;
             $NewsEvent->title = $request->title;
             $NewsEvent->details = $request->details;
 

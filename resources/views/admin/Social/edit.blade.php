@@ -11,11 +11,9 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- Main content -->
     <section class="content">
-        <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body table-responsive p-0">
@@ -27,8 +25,6 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="title" class="form-label">Details</label>
                                     <textarea type="text" class="form-control" name="details" id="editor" value="{{ old('details',$social->details) }}" placeholder="Enter  Details" cols="12">{!!$social->details!!} </textarea>
-
-
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label style="margin-top:2rem" for="file">Image Size <span style="color: red">(595*446)</span>px</label>
@@ -43,7 +39,6 @@
                 </div>
             </div>
         </div>
-        <!-- /.card -->
     </section>
 @endsection
 

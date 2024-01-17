@@ -33,11 +33,10 @@
                                 <th>Name</th>
                                 <th>Designation</th>
                                 <th>Image</th>
-                                <th>Email</th>
-                                <th>Phone no</th>
                                 <th>Facebook</th>
                                 <th>Twitter</th>
-                                <th>LinkdIn</th>
+                                <th>Linkedin</th>
+                                <th>Speech</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,14 +44,13 @@
                             @foreach ($managment as $item)
                             <tr>
                                 <td>{{ $loop->iteration}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->designation}}</td>
+                                <td>{{Illuminate\Support\Str::limit($item->name, 10)}}</td>
+                                <td>{{Illuminate\Support\Str::limit($item->designation, 10)}}</td>
                                 <td><img src="{{asset($item->image)}}" class="img-thumbnail" width="70" style="height: 40px"></td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->phone}}</td>
-                                <td>{{$item->facebook}}</td>
-                                <td>{{$item->twitter}}</td>
-                                <td>{{$item->linkdin}}</td>
+                                <td>{{Illuminate\Support\Str::limit($item->facebook, 15)}}</td>
+                                <td>{{Illuminate\Support\Str::limit($item->twitter, 15)}}</td>
+                                <td>{{Illuminate\Support\Str::limit($item->linkdin, 15)}}</td>
+                                <td>{!!Illuminate\Support\Str::limit($item->speech, 15)!!}</td>
                                 <td>
                                     <a href="{{route('managment.edit', $item->id)}}">
                                         <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

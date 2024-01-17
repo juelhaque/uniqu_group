@@ -11,11 +11,9 @@
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
 </section>
 <!-- Main content -->
 <section class="content">
-    <!-- Default box -->
     <div class="container-fluid">
         <div class="card">
             <div class="card-body table-responsive p-0">
@@ -31,10 +29,8 @@
                                     <label  for="file">Image Size <span style="color: red">(595*446)</span>px</label>
                                     <input type="file" name="image" accept="image/*" onchange="readURL(this)" required/>
                                     <img id="img-preview" src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png" width="250px" height="180px" />
-
                                 </div>
                             </div>
-
                             <br>
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>
@@ -42,7 +38,6 @@
             </div>
         </div>
     </div>
-    <!-- /.card -->
 </section>
 @endsection
 

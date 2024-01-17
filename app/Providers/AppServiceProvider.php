@@ -3,8 +3,13 @@
 namespace App\Providers;
 
 use App\Models\Achievment;
+use App\Models\Banner;
+use App\Models\Business;
 use App\Models\CompanyProfile;
 use App\Models\ContactInfo;
+use App\Models\HotelResort;
+use App\Models\Mission;
+use App\Models\WelcomeNote;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->share('company_profile', CompanyProfile::first());
-        view()->share('contact_info', ContactInfo::first());
+        view()->share('welcome_notes', WelcomeNote::first());
+        view()->share('business_companies', Business::get());
+        view()->share('banner', Banner::first());
     }
 }

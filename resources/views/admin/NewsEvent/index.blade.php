@@ -30,9 +30,10 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Date</th>
                                     <th>Title</th>
-                                    <th>Details</th>
                                     <th>Image</th>
+                                    <th>Details</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -40,11 +41,10 @@
                                 @foreach ($NewsEvent as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{!! $item->details !!}</td>
-                                        <td><img src="{{ asset($item->image) }}" class="img-thumbnail" width="70"
-                                                style="height: 40px"></td>
-
+                                        <td>{{ $item->date }}</td>
+                                        <td>{{ Illuminate\Support\Str::limit($item->title, 30) }}</td>
+                                        <td><img src="{{ asset($item->image) }}" class="img-thumbnail" width="70" style="height: 40px"></td>
+                                        <td>{!! Illuminate\Support\Str::limit($item->details, 30) !!}</td>
                                         <td>
                                             <a href="{{ route('event.edit', $item->id) }}">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"

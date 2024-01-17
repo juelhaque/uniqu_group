@@ -30,9 +30,9 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Image</th>
                                     <th>Title</th>
                                     <th>Details</th>
-                                    <th>Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -40,11 +40,10 @@
                                 @foreach ($hotelResort as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->details }}</td>
                                         <td><img src="{{ asset($item->image) }}" class="img-thumbnail" width="70"
                                                 style="height: 40px"></td>
-
+                                        <td>{{ $item->title }}</td>
+                                        <td>{!! Illuminate\Support\Str::limit($item->details, 40) !!}</td>
                                         <td>
                                             <a href="{{ route('hotel.edit', $item->id) }}">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"

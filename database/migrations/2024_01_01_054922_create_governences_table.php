@@ -15,8 +15,7 @@ class CreateGovernencesTable extends Migration
     {
         Schema::create('governences', function (Blueprint $table) {
             $table->id();
-            $table->longText('title');
-            $table->longText('details');
+            $table->string('title');
             $table->text('image');
             $table->timestamps();
         });

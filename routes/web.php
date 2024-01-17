@@ -1,19 +1,20 @@
 <?php
 
+use App\Http\Controllers\AboutUniqueGroupController;
+use App\Http\Controllers\AchievmentController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AuthController;
-use App\Http\Controllers\admin\CategoryController;
-use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\CompanyProfileController;
-use App\Http\Controllers\admin\ContactInfoController;
 use App\Http\Controllers\admin\MapController;
 use App\Http\Controllers\admin\MessageController;
-use App\Http\Controllers\admin\ProductController;
-use App\Http\Controllers\admin\ProductSubCategoryController;
 use App\Http\Controllers\admin\RegistrationController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\WelcomeNoteController;
+use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\BusinessQueryController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CharterController;
 use App\Http\Controllers\CultureController;
 use App\Http\Controllers\GoverenceController;
@@ -26,29 +27,29 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SocialResponcibilitiesController;
 use App\Http\Controllers\SpritController;
+use App\Http\Controllers\TermConditionController;
 use App\Http\Controllers\VideoController;
-use App\Http\Controllers\VissionController;
 use Illuminate\Support\Facades\Route;
 
 
 //Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 Route::get('/about', [HomeController::class, 'about'])->name('frontend.about');
+Route::get('/contact', [HomeController::class, 'contact'])->name('frontend.contact');
+Route::get('/photos', [HomeController::class, 'photo'])->name('frontend.photo');
+Route::get('/news-events', [HomeController::class, 'newsEvent'])->name('frontend.news_events');
+Route::get('/news-event-details/{id}', [HomeController::class, 'newsEventDetails'])->name('frontend.news_event_details');
+Route::get('/career', [HomeController::class, 'career'])->name('frontend.career');
+Route::get('/business-entities/{id}', [HomeController::class, 'businessEntities'])->name('frontend.business_entities');
+Route::get('/charter-of-unique-group', [HomeController::class, 'charter'])->name('frontend.charters');
+Route::get('/sprit-of-unique-group', [HomeController::class, 'spritOfUniqueGroup'])->name('frontend.sprit');
+Route::get('/social-responsibilites', [HomeController::class, 'socialResponsibilites'])->name('frontend.social_responsibilites');
+Route::get('/terms-conditions', [HomeController::class, 'termCondition'])->name('frontend.terms_conditions');
 Route::get('/director-message', [HomeController::class, 'message'])->name('message');
-Route::get('/mission-vision', [HomeController::class, 'mission'])->name('mission');
-Route::get('/corporateGovernance', [HomeController::class, 'governance'])->name('governance');
+Route::get('/mission-vision', [HomeController::class, 'mission'])->name('frontend.missions');
+Route::get('/corporate-governance', [HomeController::class, 'governance'])->name('governance');
 Route::get('/company-managment', [HomeController::class, 'managment'])->name('managment');
 Route::get('/company-culture', [HomeController::class, 'culture'])->name('culture');
-
-// Route::get('/about', [HomeController::class, 'about'])->name('frontend.about');
-// Route::get('/contact', [HomeController::class, 'contact'])->name('frontend.contact');
-// Route::get('/product', [HomeController::class, 'product'])->name('frontend.product');
-// Route::get('/product-details/{id}', [HomeController::class, 'productDetails'])->name('frontend.product_details');
-// Route::get('/service-details/{id}', [HomeController::class, 'serviceDetails'])->name('frontend.service_details');
-// Route::get('/service-item/{id}', [HomeController::class, 'serviceItem'])->name('frontend.service_item');
-// Route::get('/product-item/{id}', [HomeController::class, 'productItem'])->name('frontend.product_item');
-// Route::get('/check-status', [HomeController::class, 'checkStatus'])->name('frontend.check_status');
-// Route::get('/check-masage', [HomeController::class, 'checkMasage']);
 
 
 //Backend Route
@@ -98,14 +99,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/photo/{id}', [PhotoController::class, 'delete'])->name('photo.delete');
 
     // video route
-    Route::get('/video', [VideoController::class, 'index'])->name('video.index');
-    Route::get('/video/create', [VideoController::class, 'create'])->name('video.create');
-    Route::post('/video', [VideoController::class, 'store'])->name('video.store');
-    Route::get('/video/{id}/edit', [VideoController::class, 'edit'])->name('video.edit');
-    Route::put('/video/{id}', [VideoController::class, 'update'])->name('video.update');
-    Route::get('/video/{id}', [VideoController::class, 'delete'])->name('video.delete');
+    Route::get('/video-gallery', [VideoController::class, 'index'])->name('video-gallery.index');
+    Route::get('/video-gallery/create', [VideoController::class, 'create'])->name('video-gallery.create');
+    Route::post('/video-gallery', [VideoController::class, 'store'])->name('video-gallery.store');
+    Route::get('/video-gallery/{id}/edit', [VideoController::class, 'edit'])->name('video-gallery.edit');
+    Route::put('/video-gallery/{id}', [VideoController::class, 'update'])->name('video-gallery.update');
+    Route::get('/video-gallery/{id}', [VideoController::class, 'destroy'])->name('video-gallery.destroy');
 
-    //   partner route
+    // partner route
     Route::get('/partners', [PartnerController::class, 'index'])->name('partners.index');
     Route::get('/partners/create', [PartnerController::class, 'create'])->name('partners.create');
     Route::post('/partners', [PartnerController::class, 'store'])->name('partners.store');
@@ -121,29 +122,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/managment/{id}', [ManagmentController::class, 'update'])->name('managment.update');
     Route::get('/managment/{id}', [ManagmentController::class, 'delete'])->name('managment.delete');
 
-    //  hotel & resturant route
+    // hotel & resturant route
     Route::get('/hotel&resort', [HotelResortController::class, 'index'])->name('hotel.index');
     Route::get('/hotel&resort/create', [HotelResortController::class, 'create'])->name('hotel.create');
     Route::post('/hotel&resort', [HotelResortController::class, 'store'])->name('hotel.store');
     Route::get('/hotel&resort/{id}/edit', [HotelResortController::class, 'edit'])->name('hotel.edit');
     Route::put('/hotel&resort/{id}', [HotelResortController::class, 'update'])->name('hotel.update');
     Route::get('/hotel&resort/{id}', [HotelResortController::class, 'delete'])->name('hotel.delete');
-
-    // mission route
-    Route::get('/mission', [MissionController::class, 'index'])->name('mission.index');
-    Route::get('/mission/create', [MissionController::class, 'create'])->name('mission.create');
-    Route::post('/mission', [MissionController::class, 'store'])->name('mission.store');
-    Route::get('/missiont/{id}/edit', [MissionController::class, 'edit'])->name('mission.edit');
-    Route::put('/mission/{id}', [MissionController::class, 'update'])->name('mission.update');
-    Route::get('/mission/{id}', [MissionController::class, 'delete'])->name('mission.delete');
-
-    //  Vision Route
-    Route::get('/vision', [VissionController::class, 'index'])->name('vision.index');
-    Route::get('/vision/create', [VissionController::class, 'create'])->name('vision.create');
-    Route::post('/vision', [VissionController::class, 'store'])->name('vision.store');
-    Route::get('/vision/{id}/edit', [VissionController::class, 'edit'])->name('vision.edit');
-    Route::put('/vision/{id}', [VissionController::class, 'update'])->name('vision.update');
-    Route::get('/vision/{id}', [VissionController::class, 'delete'])->name('vision.delete');
 
     // goverence route
     Route::get('/governence', [GoverenceController::class, 'index'])->name('governence.index');
@@ -161,14 +146,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/culture/{id}', [CultureController::class, 'update'])->name('culture.update');
     Route::get('/culture/{id}', [CultureController::class, 'delete'])->name('culture.delete');
 
-
     // company sprit route
     Route::get('/sprit', [SpritController::class, 'index'])->name('sprit.index');
-    Route::get('/sprit/create', [SpritController::class, 'create'])->name('sprit.create');
-    Route::post('/sprit', [SpritController::class, 'store'])->name('sprit.store');
-    Route::get('/sprit/{id}/edit', [SpritController::class, 'edit'])->name('sprit.edit');
-    Route::put('/sprit/{id}', [SpritController::class, 'update'])->name('sprit.update');
-    Route::get('/sprit/{id}', [SpritController::class, 'delete'])->name('sprit.delete');
+    Route::put('/sprit-update', [SpritController::class, 'update'])->name('sprit.update');
 
     // company social responcibilities route
     Route::get('/social-responsibilities', [SocialResponcibilitiesController::class, 'index'])->name('social.index');
@@ -186,37 +166,60 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/news-event/{id}', [NewsEventController::class, 'update'])->name('event.update');
     Route::get('/news-event/{id}', [NewsEventController::class, 'delete'])->name('event.delete');
 
-    // company   charter value route
-    Route::get('/charter-value', [CharterController::class, 'valueIndex'])->name('value.index');
-    Route::get('/charter-value/create', [CharterController::class, 'valueCreate'])->name('value.create');
-    Route::post('/charter-value', [CharterController::class, 'valueStore'])->name('value.store');
-    Route::get('/charter-value/{id}/edit',[CharterController::class, 'valueEdit'])->name('value.edit');
-    Route::put('/charter-value/{id}', [CharterController::class, 'valueUpdate'])->name('value.update');
-    Route::get('/charter-value/{id}', [CharterController::class, 'valueDelete'])->name('value.delete');
+
+    // mission & vision route
+    Route::get('/mission', [MissionController::class, 'index'])->name('mission.index');
+    Route::put('/mission-update', [MissionController::class, 'update'])->name('mission.update');
+
+    // Career route
+    Route::get('/career-index', [CareerController::class, 'index'])->name('career.index');
+    Route::put('/career-update', [CareerController::class, 'update'])->name('career.update');
 
     // Company profile routes
     Route::get('/company-profile', [CompanyProfileController::class, 'index'])->name('company-profile.index');
     Route::put('/company-profile-update', [CompanyProfileController::class, 'update'])->name('company_profile.update');
 
-    // Contact Info routes
-    // Route::get('/contact-info', [ContactInfoController::class, 'index'])->name('contact_info.index');
-    // Route::put('/contact-info-update', [ContactInfoController::class, 'update'])->name('contact_info.update');
+    // Welcome routes
+    Route::get('/welcome-note', [WelcomeNoteController::class, 'index'])->name('welcome_note.index');
+    Route::put('/welcome-note-update', [WelcomeNoteController::class, 'update'])->name('welcome_note.update');
+
+    // About Unique Group routes
+    Route::get('/about-unique-group', [AboutUniqueGroupController::class, 'index'])->name('about_unique_group.index');
+    Route::put('/about-unique-group-update', [AboutUniqueGroupController::class, 'update'])->name('about_unique_group.update');
+
+    // Terms & Condition routes
+    Route::get('/terms-and-condition', [TermConditionController::class, 'index'])->name('terms_and_condition.index');
+    Route::put('/terms-and-condition-update', [TermConditionController::class, 'update'])->name('terms_and_condition.update');
+
+    // Achievment routes
+    Route::get('/achievment', [AchievmentController::class, 'index'])->name('achievment.index');
+    Route::put('/achievment-update', [AchievmentController::class, 'update'])->name('achievment.update');
+
+    // company charter value route
+    Route::get('/company-charter', [CharterController::class, 'index'])->name('charter.index');
+    Route::put('/company-charter-update', [CharterController::class, 'update'])->name('charter.update');
 
     // Map routes
     Route::get('/map', [MapController::class, 'index'])->name('map.index');
     Route::put('/map-update/{id}', [MapController::class, 'update'])->name('map.update');
 
-
+    // Banner routes
     Route::get('/banners', [BannerController::class, 'index'])->name('banner.index');
     Route::put('/banners-update', [BannerController::class, 'update'])->name('banner.update');
 
 });
 
 // Message routes
+Route::get('/queries', [BusinessQueryController::class, 'index'])->name('queries.index');
+Route::post('/queries/store', [BusinessQueryController::class, 'store'])->name('queries.store');
+Route::get('/queries/{id}', [BusinessQueryController::class, 'destroy'])->name('queries.destroy');
+
+// Apply routes
+Route::get('/apply', [ApplyController::class, 'index'])->name('apply.index');
+Route::post('/apply/store', [ApplyController::class, 'store'])->name('apply.store');
+Route::get('/apply/{id}', [ApplyController::class, 'destroy'])->name('apply.destroy');
+
+// Director Message routes
 Route::get('/director-massage', [MessageController::class, 'index'])->name('director-massage.index');
 Route::put('/director-massage-update', [MessageController::class, 'update'])->name('director-massage.update');
-
-// charter route
-Route::get('/charter', [CharterController::class, 'index'])->name('charter.index');
-Route::put('/charter-update', [CharterController::class, 'update'])->name('charter.update');
 

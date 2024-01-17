@@ -3,108 +3,105 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-6">
-                <div class="single-widget">
-                    <a href="index.html">
-                        <img src="{{asset('front_assets')}}/img/logo.gif" width="120" alt="Image">
+                <div class="single-widget" data-aos="flip-right" data-aos-duration="1500">
+                    <a href="{{ route('frontend.home') }}">
+                        <img src="{{asset($company_profile->company_logo)}}" width="120" alt="Image">
                     </a>
-
                     <p>
-                        Lectus tristique lacinia non in diam mauris ultricies rutrum mauris. Lectus tristique lacinia non
-                        Lectus tristique lacinia non in diam mauris ultricies rutrum mauris.
+                        {!! Illuminate\Support\Str::limit($welcome_notes->about_description, 350) !!}
                     </p>
                 </div>
             </div>
 
             <div class="col-md-3 col-6">
-                <div class="single-widget contact">
+                <div class="single-widget contact" data-aos="fade-up" data-aos-duration="1500">
                     <h3>Contact Us</h3>
-
                     <ul>
                         <li>
                             <i class="flaticon-call"></i>
                             <span>Hotline:</span>
-                            <a href="tel:Phone:+0(321)984754">
-                                +0 (321) 984 754
+                            <a href="tel:880-1700000000">
+                                {{$company_profile->phone}}
                             </a>
                         </li>
-
                         <li>
                             <i class="flaticon-envelope"></i>
                             <span>Email:</span>
                             <a
-                                href="https://templates.envytheme.com/cdn-cgi/l/email-protection#2e464b4242416e5f484756004d4143">
-                                <span class="__cf_email__"
-                                    data-cfemail="6e060b0202012e1f080716400d0103">[email&#160;protected]</span>
+                                href="mailto:info@uniquegroupbd.com"><span class="__cf_email__"
+                                    data-cfemail="6e060b0202012e1f080716400d0103">{{$company_profile->email}}</span>
                             </a>
                         </li>
-
                         <li>
                             <i class="flaticon-maps-and-flags"></i>
                             <span>Address:</span>
-                            123, Western Road, Melbourne Australia
+                            {{$company_profile->address}}
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-2 col-6">
-                <div class="single-widget">
+                <div class="single-widget" data-aos="fade-up" data-aos-duration="1500">
                     <h3>Service Links</h3>
-
                     <ul>
                         <li>
                             <a href="#">
                                 <i class="flaticon-right-chevron"></i>
-                                Tablets & Ipad Repair
+                                Sheraton Dhaka
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="flaticon-right-chevron"></i>
-                                Smart Phone Repair
+                                The Westin Dhaka
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="flaticon-right-chevron"></i>
-                                Laptop & Desktop Repair
+                                HANSA
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="flaticon-right-chevron"></i>
-                                Gadget Repair
+                                Sheraton Dhaka
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="flaticon-right-chevron"></i>
-                                Console Repair
+                                The Westin Dhaka
                             </a>
                         </li>
-
+                        <li>
+                            <a href="#">
+                                <i class="flaticon-right-chevron"></i>
+                                HANSA
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 col-6">
-                <div class="single-widget">
+                <div class="single-widget" data-aos="fade-up" data-aos-duration="1500">
                     <h3>Social Link</h3>
-
                     <div class="social-area">
                         <ul>
                             <li>
-                                <a href="#"><i class="bx bxl-facebook"></i></a>
+                                <a href="{{$company_profile->facebook}}" target="__blank"><i class="bx bxl-facebook"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="bx bxl-twitter"></i></a>
+                                <a href="{{$company_profile->twitter}}" target="__blank"><i class="bx bxl-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="bx bxl-linkedin"></i></a>
+                                <a href="{{$company_profile->linkedin}}" target="__blank"><i class="bx bxl-linkedin"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="bx bxl-youtube"></i></a>
+                                <a href="{{$company_profile->youtube}}" target="__blank"><i class="bx bxl-youtube"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="bx bxl-instagram"></i></a>
+                                <a href="{{$company_profile->instagram}}" target="__blank"><i class="bx bxl-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -120,11 +117,11 @@
     <div class="container">
         <div class="copy-right d-flex justify-content-between">
             <p>
-                Copyright <i class="bx bx-copyright"></i>2023 Unique Group, All Right Reserved
+                Copyright <i class="bx bx-copyright"></i>{{date('Y')}} <b>Unique Group</b>, All Right Reserved
             </p>
             <p>
-                Designed By :
-                <a href="https://linktechbd.com/" target="_blank">Unique Group IT</a>
+                Designed & Develop By :
+                <a href="https://linktechbd.com/" target="_blank">Link-up Technology Ltd.</a>
             </p>
         </div>
     </div>

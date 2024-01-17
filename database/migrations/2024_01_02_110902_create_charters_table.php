@@ -16,6 +16,7 @@ class CreateChartersTable extends Migration
         Schema::create('charters', function (Blueprint $table) {
             $table->id();
             $table->longText('details');
+            $table->longText('we_value')->nullable();
             $table->timestamps();
         });
     }

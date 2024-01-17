@@ -7,7 +7,7 @@
                     <h1>We Value Information Update</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('value.index') }}" class="btn btn-primary">Back</a>
+                    <a href="" class="btn btn-primary">Back</a>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
             <div class="card">
                 <div class="card-body table-responsive p-0">
                     <div class="p-3">
-                        <form action="{{ route('value.update', $value->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">

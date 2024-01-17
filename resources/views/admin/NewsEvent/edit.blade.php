@@ -7,7 +7,7 @@
                     <h1>News & Events Information Update</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('events.index') }}" class="btn btn-primary">Back</a>
+                    <a href="{{ route('event.index') }}" class="btn btn-primary">Back</a>
                 </div>
             </div>
         </div>
@@ -20,21 +20,21 @@
             <div class="card">
                 <div class="card-body table-responsive p-0">
                     <div class="p-3">
-                        <form action="{{ route('events.update', $NewsEvent->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('event.update', $NewsEvent->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
                                 <div class="col-md-6 mb-3">
+                                    <label for="date" class="form-label">Date</label>
+                                    <input type="date" class="form-control" name="date" id="date" value="{{ old('date', $NewsEvent->date) }}" placeholder="Enter date">
                                     <label for="title"   class="form-label">Title</label>
-                                    <input type="text" class="form-control" name="title" id="name" value="{{ old('title', $NewsEvent->title) }}" placeholder="Enter Title">
+                                    <input type="text" class="form-control" name="title" id="title" value="{{ old('title', $NewsEvent->title) }}" placeholder="Enter Title">
                                     <label for="title" class="form-label">Details</label>
                                     <textarea type="text" class="form-control" name="details" id="editor" value="{{ old('details', $NewsEvent->details) }}" placeholder="Enter Details">{!!$NewsEvent->details!!}</textarea>
-
-
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label style="margin-top:2rem" for="file">Image Size <span style="color: red">(330*247)</span>px</label>
-                                    <input type="file" name="image" accept="image/*" onchange="readURL(this)" required/>
+                                    <input type="file" name="image" accept="image/*" onchange="readURL(this)"/>
                                     <img id="img-preview" src="{{ asset($NewsEvent->image)}}" width="250px" height="180px" />
                                 </div>
                             </div>

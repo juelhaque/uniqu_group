@@ -25,6 +25,9 @@ class BusinessController extends Controller
     public function store(Request $request){
         try {
             $business = new Business();
+            $business->name = $request->name;
+            $business->link = $request->link;
+            $business->description = $request->description;
             if ($request->hasfile('image')) {
                 $image = $request->file('image');
                 $ext = $image->getClientOriginalExtension();
@@ -32,6 +35,7 @@ class BusinessController extends Controller
                 $image->move('uploads/business', $imageName);
                 $business->image = 'uploads/business/' . $imageName;
             }
+
             $business->save();
             return redirect()->route('business.index')->with('success', 'Insert Successful');
 
@@ -54,9 +58,10 @@ class BusinessController extends Controller
 
         try {
             $business = Business::find($id);
-
+            $business->name = $request->name;
+            $business->link = $request->link;
+            $business->description = $request->description;
             if ($request->hasfile('image')) {
-
                 if(file_exists($business->image) && $business->image != null) {
                     unlink($business->image);
                 }

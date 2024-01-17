@@ -28,11 +28,10 @@ class ManagmentController extends Controller
             $managment = new Managment;
             $managment->name = $request->name;
             $managment->designation = $request->designation;
-            $managment->Email = $request->Email;
             $managment->facebook = $request->facebook;
             $managment->linkdin = $request->linkdin;
             $managment->twitter = $request->twitter;
-            $managment->phone = $request->phone;
+            $managment->speech = $request->speech;
 
             if ($request->hasfile('image')) {
                 $image = $request->file('image');
@@ -66,11 +65,10 @@ class ManagmentController extends Controller
 
             $managment->name = $request->name;
             $managment->designation = $request->designation;
-            $managment->Email = $request->Email;
             $managment->facebook = $request->facebook;
             $managment->linkdin = $request->linkdin;
             $managment->twitter = $request->twitter;
-            $managment->phone = $request->phone;
+            $managment->speech = $request->speech;
             if ($request->hasfile('image')) {
 
                 if(file_exists($managment->image) && $managment->image != null) {

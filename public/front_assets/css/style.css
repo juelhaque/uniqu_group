@@ -911,7 +911,7 @@ HOME PAGE ONE STYLE
 Header Area Style
 ======================================================*/
 .header-area .top-header-area {
-  padding: 15px 0;
+  padding: 8px 0;
   background-color: rgba(29, 28, 62, 0.6);
 }
 
@@ -1262,7 +1262,7 @@ Nav Area
 
 .main-nav .navbar-brand img {
   width: 110px;
-  height: 45px;
+  height: 60px;
 }
 
 .main-nav .navbar-brand h4 {
@@ -1302,10 +1302,10 @@ Slider Area Style
 }
 
 .main-slider-area .slider-item {
-  height: 100vh;
+  height: 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 .main-slider-area .slider-item.bg-1 {
@@ -3046,7 +3046,7 @@ Appointment Area Two Style
 }
 
 .appointment-area .contact-wrap {
-  text-align: center;
+  text-align: left;
   background-color: #eaf3fe;
   padding: 30px;
 }
@@ -3113,7 +3113,7 @@ Appointment Area Two Style
 
 .appointment-area .appointment-content img {
   width: 100%;
-  min-height: 442px;
+  min-height: 433px;
 }
 
 .appointment-area .appointment-title {
@@ -3721,8 +3721,8 @@ Page Title Area Style
   position: relative;
   overflow: hidden;
   z-index: 1;
-  padding-top: 285px;
-  padding-bottom: 150px;
+  padding-top: 150px;
+  padding-bottom: 40px;
   background-image: url(../img/page-bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
@@ -3739,8 +3739,8 @@ Page Title Area Style
   height: 100%;
   background-color: #050b2a;
   z-index: 1;
-  -webkit-animation: 20s fadeOutLeft both;
-          animation: 20s fadeOutLeft both;
+  -webkit-animation: 5s fadeOutLeft both;
+          animation: 5s fadeOutLeft both;
 }
 
 .page-title-area::after {
@@ -3751,8 +3751,8 @@ Page Title Area Style
   width: 50%;
   height: 100%;
   background-color: #050b2a;
-  -webkit-animation: 20s fadeOutRight both;
-          animation: 20s fadeOutRight both;
+  -webkit-animation: 5s fadeOutRight both;
+          animation: 5s fadeOutRight both;
   z-index: 1;
 }
 
@@ -3800,7 +3800,7 @@ Page Title Area Style
 }
 
 .page-title-area .page-title-content ul li a:hover {
-  color: #ffffff;
+  color: #ff01a3;
 }
 
 /*
@@ -7558,7 +7558,7 @@ Banner Area Style
 }
 
 .map-info-area .corporate-info img {
-  height: 135px;
+  height: 200px;
   width: 100%;
 }
 .map-info-area .address h2 {
@@ -7568,7 +7568,7 @@ Banner Area Style
   font-size: 20px;
 }
 .map-info-area .corporate-map iframe {
-  min-height: 250px;
+  min-height: 320px;
 }
 
 /* End Home Contact section CSS */
@@ -7859,6 +7859,35 @@ Banner Area Style
     }
 
 
+    .see-more{
+        color: red;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    a.see-more:hover{
+        color: rgb(255 123 0);
+    }
+
+    .text-area{
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .services .icon {
+        line-height: 1.3;
+        position: relative;
+        z-index: 0;
+        margin: 0 auto;
+        width: 100px;
+    }
+
+    .img-size{
+        width: 80%;
+        height: 350px;
+        text-align: center;
+        border-radius: 8px;
+    }
 
 
 

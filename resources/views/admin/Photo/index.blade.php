@@ -31,7 +31,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Photo</th>
-                                <th>Action</th>
+                                <th style="width: 120px">Action</th>
                             </tr>
                         </thead>
                         <tbody>
