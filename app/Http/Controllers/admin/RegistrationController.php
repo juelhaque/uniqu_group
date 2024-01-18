@@ -53,6 +53,11 @@ class RegistrationController extends Controller
         }
     }
 
+    public function editProfile($id)
+    {
+        $user = User::find($id);
+        return view('admin.auth.user_edit_profile', compact('user'));
+    }
     public function edit($id)
     {
         $user = User::find($id);
@@ -62,6 +67,7 @@ class RegistrationController extends Controller
 
     public function update($id, Request $request)
     {
+        // return $request;
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -87,11 +93,11 @@ class RegistrationController extends Controller
             }
             $user->update();
 
-            return redirect()->route('user.index')->with('success', 'Update Successful!');
+            return redirect()->back()->with('success', 'Update Successful!');
             // }
         } catch (\Throwable $th) {
-            // throw $th;
-            return redirect()->back()->with('error', 'Update Failed!');
+            throw $th;
+            // return redirect()->back()->with('error', 'Update Failed!');
         }
     }
 

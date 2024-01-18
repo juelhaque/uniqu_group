@@ -22,9 +22,9 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-3">
                 <h4 class="h4 mb-0"><strong>{{ Auth::user()->name }}</strong></h4>
-                <div class="mb-3">{{ Auth::user()->email }}</div>
+                <div class="mb-1">{{ Auth::user()->email }}</div>
                 <div class="dropdown-divider"></div>
-                <a href="{{route('user.edit', Auth::user()->id)}}" class="dropdown-item">
+                <a href="{{route('user.edit.profile', Auth::user()->id)}}" class="dropdown-item">
                     <i class="fas fa-user-cog mr-2"></i> My Account
                 </a>
                 <div class="dropdown-divider"></div>

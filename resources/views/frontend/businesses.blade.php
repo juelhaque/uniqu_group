@@ -22,7 +22,7 @@
 <section class="about-area pb-5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col-lg-6" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="3000">
                 <div class=" rainbow mt-lg-5">
                     <div class="about_img">
                         <div class="col_img" style="width: 100%">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="2000">
                 <div class="about-wrap " style="margin-top: 45px">
                     <div class="about-content">
                         <h2>{{$businesses->name}}</h2>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; padding-top: 45px" data-aos="zoom-in-down" data-aos-duration="1000">
+            <div style="text-align: center; padding-top: 45px" data-aos="zoom-in-down" data-aos-duration="2000">
                 <a href="{{$businesses->link}}" target="__blank" class="btn btn-danger">Visit Website</a>
             </div>
         </div>

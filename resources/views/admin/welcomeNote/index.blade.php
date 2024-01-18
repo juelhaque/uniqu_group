@@ -31,17 +31,17 @@
                                         id="welcome_note" value="{{ old('welcome_note', $details->welcome_note) }}">
                                 </div>
                                 <div class="col-6 mb-1">
-                                    <label for="accessories" class="mt-2">Point 1</label>
+                                    <label for="accessories" class="form-label">Point 1</label>
                                     <textarea class="form-control form-control-sm" name="accessories" id="editor2"cols="4" rows="4">
                                         {{ old('accessories', $details->accessories) }}</textarea>
                                 </div>
                                 <div class="col-6 mb-1">
-                                    <label for="about_description" class="mt-2">Welcome Description</label>
+                                    <label for="about_description" class="mt-2 form-label">Welcome Description</label>
                                     <textarea class="form-control form-control-sm" name="about_description" id="editor"cols="4" rows="4">
                                         {{ old('about_description', $details->about_description) }}</textarea>
                                 </div>
                                 <div class="col-6 mb-1">
-                                    <label for="analysis" class="mt-2">Point 2</label>
+                                    <label for="analysis" class="mt-2 form-label">Point 2</label>
                                     <textarea class="form-control form-control-sm" name="analysis" id="editor3"cols="4" rows="4">
                                         {{ old('analysis', $details->analysis) }}</textarea>
                                 </div>
@@ -83,7 +83,9 @@
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            @if (Auth::user()->role != 2)
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            @endif
                         </form>
                     </div>
                 </div>

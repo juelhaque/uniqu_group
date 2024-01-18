@@ -12,11 +12,9 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- Main content -->
     <section class="content">
-        <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body table-responsive p-0">
@@ -30,28 +28,28 @@
                                     <input type="text" class="form-control form-control-sm" name="title"
                                         id="title" value="{{ old('title', $details->title) }}">
 
-                                    <label for="about_description" class="mt-2">About Description</label>
-                                    <textarea class="form-control form-control-sm" name="about_description" id="editor"cols="4" rows="4">
-                                        {{ old('about_description', $details->about_description) }}</textarea>
-                                </div>
-                                <div class="col-6 mb-1 mt-2">
-                                    <div class="form-check mb-2">
-                                        <label for="file">About Image</label><br>
+                                    <div class="form-check mb-2 mt-2">
+                                        <label class="form-label" for="file">About Image</label><br>
                                         <input type="file" name="about_image" accept="image/*"
                                             onchange="readURL(this)" />
                                     </div>
-                                    <img id="img-preview" src="{{ asset($details->about_image) }}" width="200px"
-                                        height="150px" />
+                                    <img id="img-preview" src="{{ asset($details->about_image) }}" width="200px" height="150px" />
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <label for="about_description" class="form-label">About Description</label>
+                                    <textarea class="form-control form-control-sm" name="about_description" id="editor"cols="4" rows="4">
+                                        {{ old('about_description', $details->about_description) }}</textarea>
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            @if (Auth::user()->role != 2)
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            @endif
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.card -->
     </section>
 @endsection
 
@@ -79,6 +77,6 @@
                 $("#img-preview").attr("src", noimage);
             }
         }
-
     </script>
 @endpush
+

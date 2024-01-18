@@ -25,20 +25,21 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="title" class="form-label">Title</label>
-                                    <input type="text" class="form-control" name="title" id=""
+                                    <input type="text" class="form-control mb-2" name="title" id=""
                                         value="{{ old('title', $sprit->title) }}" placeholder="Enter  Title">
                                     <label for="title" class="form-label">Details</label>
                                     <textarea type="text" class="form-control" name="details" id="editor" placeholder="Enter  Details">{!! $sprit->details !!}</textarea>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label style="margin-top:2rem" for="file">Image Size <span
-                                            style="color: red">(595*446)</span>px</label>
+                                    <label for="file">Image Size <span style="color: red">(595*446)</span>px</label>
                                     <input type="file" name="image" accept="image/*" onchange="readURL(this)"/>
                                     <img id="img-preview" src="{{ asset($sprit->image) }}" width="250px" height="180px" />
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            @if (Auth::user()->role != 2)
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            @endif
                         </form>
                     </div>
                 </div>

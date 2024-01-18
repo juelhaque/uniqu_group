@@ -117,14 +117,11 @@
             </div>
             <div class="col-lg-6">
                 <div class="appointment-content" data-aos="zoom-in-down" data-aos-duration="1500">
-                    <img src="{{ asset($business_query->about_banner) }}" class="img-fluid" alt="">
+                    <img src="{{ asset($business_query->about_banner) }}" class="img-fluid" alt="" style="border-radius: 8px; height: 434px">
                 </div>
             </div>
         </div>
     </div>
-    {{-- <div class="shape" data-aos="fade-down" data-aos-duration="2000">
-        <img src="{{ asset('front_assets') }}/img/home-two/appoinment-img.png" alt="Image">
-    </div> --}}
 </section>
 <!-- End Send Business Queries Area -->
 

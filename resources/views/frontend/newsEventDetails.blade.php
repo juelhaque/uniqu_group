@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Start Page Title Area -->
-<div class="page-title-area bg-17" style="background-image: url({{$banner->news_event_banner}}); text-shadow: 2px 2px #000000;">
+<div class="page-title-area bg-17">
     <div class="container">
         <div class="page-title-content">
             <h2 data-aos="fade-right" data-aos-duration="2000">News and Events Details</h2>

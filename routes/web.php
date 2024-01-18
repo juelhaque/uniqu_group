@@ -70,6 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user', [RegistrationController::class, 'index'])->name('user.index');
     Route::get('/user/create', [RegistrationController::class, 'create'])->name('user.create');
     Route::post('/user', [RegistrationController::class, 'store'])->name('user.store');
+    Route::get('/user/{id}/edit_profile', [RegistrationController::class, 'editProfile'])->name('user.edit.profile');
     Route::get('/user/{id}/edit', [RegistrationController::class, 'edit'])->name('user.edit');
     Route::put('/user/{id}', [RegistrationController::class, 'update'])->name('user.update');
     Route::get('/user/{id}', [RegistrationController::class, 'destroy'])->name('user.destroy');

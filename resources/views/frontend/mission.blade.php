@@ -23,19 +23,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="about-wrap reveal">
+                <div class="about-wrap" data-aos="fade-left" data-aos-duration="2000">
                     <div class="about-content" style="padding-top:3rem">
                         <h4>{{$mission->title}}</h4>
                         <p>{!!$mission->details!!}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="reveal-img rainbow mt-lg-5">
+            <div class="col-lg-6" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="3000">
+                <div class="rainbow mt-lg-5">
                     <div class="about_img">
                         <div class="col_img" style="width: 100%; height:350px">
-                            <img src="{{ asset($mission->image) }}" class="w-100"
-                                alt="">
+                            <img src="{{ asset($mission->image) }}" class="w-100" alt="">
                         </div>
                     </div>
                 </div>
@@ -48,8 +47,8 @@
  <div id = "animated-example" class = "animated bounceInLeft">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="reveal-img rainbow mt-lg-5">
+            <div class="col-lg-6" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="3000">
+                <div class="rainbow mt-lg-5">
                     <div class="about_img">
                         <div class="col_img" style="width: 100%; height:350px">
                             <img src="{{ asset($mission->vision_image) }}" class="w-100"
@@ -59,7 +58,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="about-wrap reveal">
+                <div class="about-wrap" data-aos="fade-right" data-aos-duration="2000">
                     <div class="about-content" style="padding-top:3rem">
                         <h4>{{$mission->vision_title}}</h4>
                         <p>{!!$mission->vision_details!!}</p>

@@ -29,7 +29,9 @@
                                             <textarea class="form-control" name="map" rows="6">{{ old('map', $mapp->map) }}</textarea>
                                         </div>
                                         <br>
-                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        @if (Auth::user()->role != 2)
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        @endif
                                     </div>
                                 </form>
                             </div>

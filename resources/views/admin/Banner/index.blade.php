@@ -12,11 +12,9 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- Main content -->
     <section class="content">
-        <!-- Default box -->
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body table-responsive p-0">
@@ -61,7 +59,7 @@
                                         </div>
                                         <div class="col-sm-6 mb-1 mt-5">
                                             <div class="form-check mb-2">
-                                                <label for="file">Gobernance  Banner</label><br>
+                                                <label for="file">Governance  Banner</label><br>
                                                 <input type="file" name="governance_banner" accept="image/*"
                                                     onchange="readURL5(this)" />
                                             </div>
@@ -81,7 +79,7 @@
                                     <div class="row mt-3">
                                         <div class="col-sm-6 mb-1 mt-2">
                                             <div class="form-check mb-2">
-                                                <label for="file">Managment Banner</label><br>
+                                                <label for="file">Management Banner</label><br>
                                                 <input type="file" name="managment_banner" accept="image/*"
                                                     onchange="readURL7(this)" />
                                             </div>
@@ -132,13 +130,14 @@
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            @if (Auth::user()->role != 2)
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            @endif
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.card -->
     </section>
 @endsection
 

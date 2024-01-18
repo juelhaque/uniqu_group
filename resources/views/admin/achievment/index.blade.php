@@ -67,7 +67,9 @@
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            @if (Auth::user()->role != 2)
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            @endif
                         </form>
                     </div>
                 </div>

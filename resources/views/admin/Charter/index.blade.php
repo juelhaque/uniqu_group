@@ -30,14 +30,11 @@
                                     <textarea type="text" class="form-control form-control-sm" name="details"
                                         id="editor" >{!!$charter->details!!}</textarea>
                                 </div>
-                                {{-- <div class="col-12 mb-1">
-                                    <label for="we_value" class="form-label">We Value</label>
-                                    <textarea type="text" class="form-control form-control-sm" name="we_value"
-                                        id="editor2" >{!!$charter->we_value!!}</textarea>
-                                </div> --}}
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            @if (Auth::user()->role != 2)
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            @endif
                         </form>
                     </div>
                 </div>

@@ -28,14 +28,13 @@
                                     <input type="text" class="form-control form-control-sm" name="title"
                                         id="title" value="{{ old('title', $details->title) }}">
 
-                                    <label for="description" class="mt-2">Description</label>
+                                    <label for="description" class="mt-2 form-label">Description</label>
                                     <textarea class="form-control form-control-sm" name="description" id="editor"cols="4" rows="4">
                                         {{ old('description', $details->description) }}</textarea>
                                 </div>
                                 <div class="col-6 mb-1">
-                                    <label for="points" class="mt-2">Points</label>
-                                    <textarea class="form-control form-control-sm" name="points" id="editor2"cols="4" rows="4">
-                                        {{ old('points', $details->points) }}</textarea>
+                                    <label for="points" class="form-label">Points</label>
+                                    <textarea name="points" id="summernote" cols="30" rows="20" class="form-control form-control-sm">{{ old('points', $details->points) }}</textarea>
                                 </div>
                                 <div class="col-6 mb-1 mt-2">
                                     <div class="form-check mb-2">
@@ -48,13 +47,14 @@
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            @if (Auth::user()->role != 2)
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            @endif
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.card -->
     </section>
 @endsection
 
@@ -71,6 +71,15 @@
             .catch(error => {
                 console.error(error);
             });
+    </script>
+    <script>
+
+        $(document).ready(function(){
+            $("#summernote").summernote({
+                height:200
+            });
+        });
+
     </script>
     <script>
         let noimage = "https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png";

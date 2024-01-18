@@ -15,10 +15,38 @@
   .note {
     font-size: 12px !important;
   }
-} 
+
+  .single-team ul
+  {
+    position: relative;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+
+  .single-team img{
+    margin-bottom: -10px;
+  }
+
+
+  .about-content{
+    text-align: center !important;
+  }
+
+  .about_unique{
+    margin-top: 2rem;
+  }
+
+}
 
 @media only screen and (max-width: 767px) {
-  
+
   .ptb-100 {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -96,7 +124,7 @@
   }
 
   .mobile-nav .logo {
-      width: 80% !important;  
+      width: 80% !important;
   }
   .mobile-nav .logo img {
       width: 92px;
@@ -152,7 +180,7 @@
       margin-bottom: 12px;
   }
   .single-facility::before {
-    display: none;
+    display: block;
   }
   .facility-area .col-lg-6:nth-child(2) .single-facility {
     margin-top: 0;
@@ -378,10 +406,11 @@
   }
   .map-info-area .corporate-info {
     text-align: center;
+    margin-bottom: 2rem;
   }
   .map-info-area .corporate-info img {
-      width: 166px;
-      height: 100px;
+      width: 100%;
+      height: 350px !important;
   }
   .repair-area-three .single-repair {
     padding: 15px;
@@ -1146,7 +1175,7 @@
     margin-left: 15px;
   }
   .single-facility::before {
-    display: none;
+    display: block;
   }
   .facility-area .col-lg-6:nth-child(2) .single-facility {
     margin-top: 0;

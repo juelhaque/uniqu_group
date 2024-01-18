@@ -23,7 +23,7 @@
                 <div class="col-lg-6" data-aos="zoom-in-down" data-aos-duration="1600">
                     <div class="mt-lg-5">
                         <div class="about_img">
-                            <div class="">
+                            <div class="about_unique">
                                 <img src="{{ asset($about_us->about_image) }}" class="w-100" alt="" style="border-radius: 8px">
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="appointment-content" data-aos="zoom-in-down" data-aos-duration="1500">
-                        <img src="{{ asset($business_query->about_banner) }}" class="img-fluid" alt="" style="border-radius: 8px">
+                        <img src="{{ asset($business_query->about_banner) }}" class="img-fluid" alt="" style="border-radius: 8px; height: 434px">
                     </div>
                 </div>
             </div>

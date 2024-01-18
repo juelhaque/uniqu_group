@@ -12,7 +12,11 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('back_assets/css/adminlte.min.css') }}">
 
+    {{-- <link rel="stylesheet" href="{{ asset('back-assets/plugins/summernote/summernote.min.css') }}"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css" integrity="sha512-ngQ4IGzHQ3s/Hh8kMyG4FC74wzitukRMIcTOoKT3EyzFZCILOPF0twiXOQn75eDINUfKBYmzYn2AA8DkAk8veQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="{{ asset('back_assets/css/custom.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -77,9 +81,27 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('back_assets/js/adminlte.min.js') }}"></script>
 
+    {{-- <script src="{{ asset('back-assets/plugins/summernote/summernote.min.js') }}"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.js" integrity="sha512-ZESy0bnJYbtgTNGlAD+C2hIZCt4jKGF41T5jZnIXy4oP8CQqcrBGWyxNP16z70z/5Xy6TS/nUZ026WmvOcjNIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('back_assets/js/demo.js') }}"></script>
 
+    <script>
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $(document).ready(function(){
+            $("#summernote").summernote({
+                height:200
+            });
+        });
+
+    </script>
     @stack('admin-js')
 </body>
 

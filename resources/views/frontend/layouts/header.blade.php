@@ -34,9 +34,8 @@
     <!-- Start Navbar Area -->
     <div class="nav-area">
         <div class="navbar-area">
-
-            <!-- Menu For Mobile Device -->
-            <div class="mobile-nav" data-aos="flip-up" data-aos-duration="1500">
+            
+            <div class="mobile-nav">
                 <a href="{{ route('frontend.home') }}" class="logo d-flex">
                     <img src="{{asset($company_profile->company_logo)}}" alt="Logo">
                     <h4>Unique Group</h4>

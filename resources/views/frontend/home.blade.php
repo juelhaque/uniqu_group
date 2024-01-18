@@ -429,7 +429,7 @@
     <section class="map-info-area py-4">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 mb-3">
                     <div class="corporate-info">
                         <img src="{{asset($company_profile->company_logo)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
                         <div class="address" data-aos="fade-left" data-aos-duration="2000">

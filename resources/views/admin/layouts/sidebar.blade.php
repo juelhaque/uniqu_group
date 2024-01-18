@@ -31,7 +31,7 @@
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fab fa-product-hunt"></i>
+                        <i class="nav-icon fas fa-list"></i>
                         <p>About<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview" style="padding-left: 1.5rem">

@@ -38,12 +38,14 @@
                                         placeholder="User Name">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="role">Role</label>
-                                    <input type="number" name="role" id="role" class="form-control"
-                                        placeholder="Role">
-                                </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="role">Role</label>
+                                <select class="form-select form-control" id="role" name="role">
+                                    <option value="" selected disabled>Select a Role</option>
+                                    <option value=0>Super Admin</option>
+                                    <option value=1>Admin</option>
+                                    <option value=2>User</option>
+                                </select>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">

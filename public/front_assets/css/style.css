@@ -3422,7 +3422,7 @@ Facility Area Four Style
   width: 50%;
   height: 100%;
   background-color: #3390f1;
-  z-index: -1;
+  z-index: -2;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }

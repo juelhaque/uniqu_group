@@ -40,6 +40,7 @@
                                         <td><img src="{{ asset($item->image) }}" class="img-thumbnail" width="70"
                                                 style="height: 40px"></td>
                                         <td>
+                                            @if (Auth::user()->role != 2)
                                             <a href="{{ route('governence.edit', $item->id) }}">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -60,6 +61,7 @@
                                                         clip-rule="evenodd"></path>
                                                 </svg>
                                             </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

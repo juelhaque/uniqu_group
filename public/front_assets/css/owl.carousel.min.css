@@ -37,6 +37,12 @@
     -webkit-transform: translate3d(0, 0, 0)
 }
 
+@media only screen and (min-width:320px) and (max-width:480px) {
+    .owl-carousel .owl-stage-outer {
+        margin-top: 75px;
+    }
+  }
+
 .owl-carousel .owl-item,
 .owl-carousel .owl-wrapper {
     -webkit-backface-visibility: hidden;

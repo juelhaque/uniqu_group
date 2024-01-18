@@ -90,7 +90,7 @@
                     <div class="about-content" style="text-align: justify">
                         <h2 data-aos="fade-left" data-aos-duration="1500">{{$careers->title}}</h2>
                         <div data-aos="fade-right" data-aos-duration="1500">{!!$careers->description!!}</div>
-                        <div data-aos="fade-up" data-aos-duration="1500">Interested candidates please send your CV to <span style="color: red">hr@uniquegroupbd.com</span></div>
+                        <div data-aos="fade-up" data-aos-duration="1500">Interested candidates please send your CV to : <a href="mailto:hr@uniquegroupbd.com"><span style="color: red"> hr@uniquegroupbd.com</span></a></div>
                     </div>
                 </div>
             </div>

@@ -43,9 +43,15 @@
                             <div class="col-md-6 mb-3">
                                 <label for="role">Role</label>
                                 <select class="form-select form-control" id="role" name="role">
+                                    @if(Auth::user()->role==0)
                                     <option value="0" {{$user->role == 0 ? 'selected' : ''}}>Super Admin</option>
+                                    @endif
+                                    @if(Auth::user()->role==1)
                                     <option value="1" {{$user->role == 1 ? 'selected' : ''}}>Admin</option>
+                                    @endif
+                                    @if(Auth::user()->role==2)
                                     <option value="2" {{$user->role == 2 ? 'selected' : ''}}>User</option>
+                                    @endif
                                 </select>
                             </div>
                             <div class="col-md-6">
