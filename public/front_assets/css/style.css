@@ -98,6 +98,8 @@ Default Style
 ============================*/
 @import url("https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700&amp;display=swap");
 @import url("https://fonts.googleapis.com/css?family=Bree+Serif&amp;display=swap&amp;subset=latin-ext");
+
+
 body {
   padding: 0;
   margin: 0;
@@ -106,6 +108,7 @@ body {
   font-family: "Lato", sans-serif;
   color: #212121;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 a {

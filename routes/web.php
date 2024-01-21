@@ -102,7 +102,7 @@ Route::group(['middleware' => 'auth'], function () {
     // video route
     Route::get('/video-gallery', [VideoController::class, 'index'])->name('video-gallery.index');
     Route::get('/video-gallery/create', [VideoController::class, 'create'])->name('video-gallery.create');
-    Route::post('/video-gallery', [VideoController::class, 'store'])->name('video-gallery.store');
+    Route::post('/video-gallery-store', [VideoController::class, 'store'])->name('video-gallery.store');
     Route::get('/video-gallery/{id}/edit', [VideoController::class, 'edit'])->name('video-gallery.edit');
     Route::put('/video-gallery/{id}', [VideoController::class, 'update'])->name('video-gallery.update');
     Route::get('/video-gallery/{id}', [VideoController::class, 'destroy'])->name('video-gallery.destroy');
