@@ -118,17 +118,22 @@
                     </a>
                 </li>
 
-
                 <li class="nav-item">
                     <a href="{{ route('partners.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-solid fa-handshake"></i>
-                        <p>Partners</p>
+                        <p>Business Associate</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('business.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-solid fa-business-time"></i>
                         <p>Business Entities</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('hotel.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-solid fa-hotel"></i>
+                        <p>Hotel & Resort</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -143,13 +148,6 @@
                         <p>Career</p>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('hotel.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-solid fa-hotel"></i>
-                        <p>Hotel & Resort</p>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a href="{{ route('photo.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-solid fa-image"></i>
@@ -162,7 +160,6 @@
                         <p>Videos</p>
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a href="{{ route('map.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-map-marker-alt"></i>

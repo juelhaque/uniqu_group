@@ -43,7 +43,11 @@
                                 <td>{{$videoGallery->rank}}</td>
                                 <td>{{$videoGallery->title}}</td>
                                 <td class="text-center">
-                                    <iframe width="250" height="150" src="{{asset($videoGallery->video)}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    <video width="250" height="150" controls>
+                                        <source src="{{asset($videoGallery->video)}}" type="video/mp4">
+                                        <source src="{{asset($videoGallery->video)}}" type="video/ogg">
+                                        Your browser does not support the video tag.
+                                    </video>
                                 </td>
                                 <td>
                                     @if (Auth::user()->role != 2)

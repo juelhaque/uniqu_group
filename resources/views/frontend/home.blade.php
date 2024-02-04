@@ -1,5 +1,12 @@
 @extends('frontend.layouts.app')
 
+@push('frontCss')
+<style>
+
+</style>
+@endpush
+
+
 @section('content')
     <!-- Start Slider Area Five -->
     <section class="slider-area-five">
@@ -22,31 +29,15 @@
     <!-- End Slider Area Five -->
 
 
-    <!-- Start About Area -->
+    <!-- Start Welcome Note Area -->
     <section class="about-area pb-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-wrap">
-                        <div class="about-content" data-aos="fade-right" data-aos-duration="1500">
+                        <div class="about-content" style="text-align: justify" data-aos="fade-right" data-aos-duration="1500">
                             <h2>{{ $welcome_notes->welcome_note }}</h2>
                             <p>{!! $welcome_notes->about_description !!}</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 col-6" data-aos="fade-left" data-aos-duration="1500">
-                                <div class="single-about">
-                                    <i class="flaticon-computer"></i>
-                                    <h3>Accessories</h3>
-                                    <p>{!! $welcome_notes->accessories !!}</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-6" data-aos="fade-left" data-aos-duration="1500">
-                                <div class="single-about">
-                                    <i class="flaticon-innovation"></i>
-                                    <h3>Analysis</h3>
-                                    <p>{!! $welcome_notes->analysis !!}</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,44 +62,112 @@
             </div>
         </div>
     </section>
-    <!-- End About Area -->
+    <!-- End Welcome Note Area -->
 
 
-    <!-- Start At A Glance Area -->
-    <section class="repair-area-two repair-area-four pt-5 pb-3 jarallax">
-        <div class="container" data-aos="zoom-in-down" data-aos-duration="1000">
-            <div class="section-title white-title">
-                <h2>Business Sector of Unique Group</h2>
+    <!-- Start Our Management Area -->
+    <section class="our-team-area pt-4">
+        <div class="container-fluid">
+            <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
+                <h2 class="text-white">Our Management</h2>
             </div>
-        </div>
-
-        <div class="container-fluid ps-0 pe-0">
-            <div class="clients-slider owl-carousel owl-theme" data-aos="fade-down" data-aos-duration="1000">
-                @foreach ($partnars as $item)
-                    <div class="m-2">
-                        <div class="card work-hover">
-                            <a href="" target="_blank">
-                                <img src="{{ asset($item->image) }}" class="work-image" alt="clients">
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
-            <div class="clients-slider1 owl-carousel owl-theme" data-aos="fade-up" data-aos-duration="1000">
-                @foreach ($partnar as $item)
-                    <div class="m-2">
-                        <div class="card work-hover">
-                            <a href="" target="_blank">
-                                <img src="{{ asset($item->image) }}" class="work-image" alt="clients">
-                            </a>
+            <div class="row">
+                @foreach ($managements as $management)
+                    <div class="col-md-3 col-6">
+                        <div class="single-team" data-aos="zoom-out-down" data-aos-duration="1500">
+                            <img src="{{ asset($management->image) }}" class="w-100 img-fluid" alt="Image">
+                            <ul data-aos="fade-left" data-aos-duration="1500">
+                                <li><a target="__blank" href="{{ $management->facebook }}"><i
+                                            class='bx bxl-facebook'></i></a></li>
+                                <li><a target="__blank" href="{{ $management->twitter }}"><i
+                                            class='bx bxl-twitter'></i></a></li>
+                                <li><a target="__blank" href="{{ $management->linkdin }}"><i
+                                            class='bx bxl-linkedin'></i></a></li>
+                            </ul>
+                            <h3 class="text-white" data-aos="fade-right" data-aos-duration="1500">{{ $management->name }}</h3>
+                            <span class="text-white" data-aos="fade-left" data-aos-duration="1500">{{ $management->designation }}</span>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </section>
-    <!-- End At A Glance Area -->
+    <!-- End Our Management Area -->
+
+
+    <!-- Start Business concern Area -->
+    <section class="repair-area-two repair-area-four pt-5 pb-3 jarallax">
+        <div class="container" data-aos="zoom-in-down" data-aos-duration="1000">
+            <div class="section-title white-title">
+                <h2>Business Concern of Unique Group</h2>
+            </div>
+        </div>
+        {{-- data-aos="fade-down" data-aos-duration="1000" --}}
+        <div class="container-fluid ps-0 pe-0">
+            <div class="clients-slider owl-carousel owl-theme" >
+                @foreach ($business_companies as $item)
+                    <div class="m-2">
+                        <div class="card work-hover">
+                            <a href="{{route('frontend.business_entities',['id' => $item->id])}}">
+                                <img src="{{ asset($item->logo) }}" class="work-image" alt="clients">
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            {{-- data-aos="fade-up" data-aos-duration="1000" --}}
+            {{-- <div class="clients-slider1 owl-carousel owl-theme">
+                @foreach ($partnar as $item)
+                    <div class="m-2">
+                        <div class="card work-hover">
+                            <a href="">
+                                <img src="{{ asset($item->image) }}" class="work-image" alt="clients">
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div> --}}
+        </div>
+    </section>
+    <!-- End Business concern Area -->
+
+
+    <!-- Start Hotel & Resorts Area -->
+    <section class="news-area py-4">
+        <!-- data-aos="flip-left" -->
+        <div class="container-fluid">
+            <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
+                <h2>Unique Hotel & Resorts Ltd.</h2>
+            </div>
+            <div class="row">
+                @foreach ($hotel_resorts as $item)
+                    <div class="col-md-3 col-6 mb-4" data-aos="zoom-in-up" data-aos-duration="1500">
+                        <div class="cards">
+                            <div class="cards_item">
+                                <div class="card" tabindex="0">
+                                    <div class="card_image">
+                                        <a href="">
+                                            <img src="{{ asset($item->image) }}" class="img-fluid w-100" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="card_content" data-aos="zoom-out-down" data-aos-duration="1500">
+                                        <div class="card_text">
+                                            <span class="note">{{ $item->title }}</span>
+                                            <p>{!! $item->details !!}</p>
+                                            <a href="" class="read-more text-white">Read More<i
+                                                    class="bx bx-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- End Hotel & Resorts Area -->
 
 
     <!-- Video Gallery Area -->
@@ -132,7 +191,7 @@
                 @endforeach
                 <div class="col-md-6 col-12">
                     <div class="row">
-                        @foreach ($videos->skip(1) as $item)
+                        @foreach ($videos->skip(1)->take(4) as $item)
                             <div class="col-md-6 col-6 mb-2" data-aos="fade-left" data-aos-duration="1500">
                                 <div class="right_video">
                                     <iframe width="100%" height="180" src="{{ asset($item->video) }}"
@@ -229,7 +288,7 @@
         <!-- data-aos="fade-left" -->
         <div class="container-fluid">
             <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
-                <h2 class="text-white">Our Partners</h2>
+                <h2 class="text-white">Business Associates</h2>
             </div>
             <div class="partners-wrap owl-theme owl-carousel" data-aos="fade-up" data-aos-duration="1500">
                 @foreach ($partnars as $partnar)
@@ -241,73 +300,6 @@
         </div>
     </div>
     <!-- End Partners Area -->
-
-
-    <!-- Start News Area -->
-    <section class="news-area py-4">
-        <!-- data-aos="flip-left" -->
-        <div class="container-fluid">
-            <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
-                <h2>Unique Hotel & Resorts Ltd.</h2>
-            </div>
-            <div class="row">
-                @foreach ($hotel_resorts as $item)
-                    <div class="col-md-3 col-6 mb-4" data-aos="zoom-in-up" data-aos-duration="1500">
-                        <div class="cards">
-                            <div class="cards_item">
-                                <div class="card" tabindex="0">
-                                    <div class="card_image">
-                                        <a href="">
-                                            <img src="{{ asset($item->image) }}" class="img-fluid w-100" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="card_content" data-aos="zoom-out-down" data-aos-duration="1500">
-                                        <div class="card_text">
-                                            <span class="note">{{ $item->title }}</span>
-                                            <p>{!! $item->details !!}</p>
-                                            <a href="" class="read-more text-white">Read More<i
-                                                    class="bx bx-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    <!-- End News Area -->
-
-
-    <!-- Start Our Team Area -->
-    <section class="our-team-area pt-4">
-        <div class="container-fluid">
-            <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
-                <h2 class="text-white">Our Management</h2>
-            </div>
-            <div class="row">
-                @foreach ($managements as $management)
-                    <div class="col-md-3 col-6">
-                        <div class="single-team" data-aos="zoom-out-down" data-aos-duration="1500">
-                            <img src="{{ asset($management->image) }}" class="w-100 img-fluid" alt="Image">
-                            <ul data-aos="fade-left" data-aos-duration="1500">
-                                <li><a target="__blank" href="{{ $management->facebook }}"><i
-                                            class='bx bxl-facebook'></i></a></li>
-                                <li><a target="__blank" href="{{ $management->twitter }}"><i
-                                            class='bx bxl-twitter'></i></a></li>
-                                <li><a target="__blank" href="{{ $management->linkdin }}"><i
-                                            class='bx bxl-linkedin'></i></a></li>
-                            </ul>
-                            <h3 class="text-white" data-aos="fade-right" data-aos-duration="1500">{{ $management->name }}</h3>
-                            <span class="text-white" data-aos="fade-left" data-aos-duration="1500">{{ $management->designation }}</span>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    <!-- End Our Team Area -->
 
 
     <!-- Send Business Queries Area -->
@@ -392,49 +384,17 @@
     <!-- End Send Business Queries Area -->
 
 
-    <!-- Start Contact Info Area -->
-    <section class="facility-area home_contact facility-area-four py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-sm-6" data-aos="fade-left" data-aos-duration="2000">
-                    <div class="single-facility bg-teal">
-                        <img src="{{ asset('front_assets') }}/img/img-icon/1.png" alt="Image">
-                        <h3>Corporate Office:</h3>
-                        <p>{{ $company_profile->address }}</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6" data-aos="zoom-in" data-aos-duration="2000">
-                    <div class="single-facility middle_card">
-                        <img src="{{ asset('front_assets') }}/img/img-icon/4.png" alt="Image">
-                        <h3>Let's Talk:</h3>
-                        <p>{{ $company_profile->phone }}</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6" data-aos="fade-right" data-aos-duration="2000">
-                    <div class="single-facility bg-teal">
-                        <img src="{{ asset('front_assets') }}/img/img-icon/2.png" alt="Image">
-                        <h3>Email Us:</h3>
-                        <p>{{ $company_profile->email }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Contact Info Area -->
-
-
     <!-- Start Map Info Area -->
     <section class="map-info-area py-4">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4 col-sm-6 mb-3">
-                    <div class="corporate-info">
-                        <img src="{{asset($company_profile->company_logo)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
-                        <div class="address" data-aos="fade-left" data-aos-duration="2000">
-                            <h2>Unique Group <span>(Corporate Office)</span></h2>
-                            <p>{{ $company_profile->address }}</p>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="row corporate-info">
+                        <div class="col-12" style="text-align: center; ">
+                            <img src="{{asset($company_profile->company_logo)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
+                        </div>
+                        <div class="col-12" style="text-align: center; ">
+                            <img style="width: 87%; height: 218px;" src="{{asset('front_assets/img/shop/11.jpg')}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
                         </div>
                     </div>
                 </div>

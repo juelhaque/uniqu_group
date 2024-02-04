@@ -56,7 +56,6 @@ class PhotoController extends Controller
             $photo = Photo::find($id);
 
             if ($request->hasfile('image')) {
-
                 if(file_exists($photo->image) && $photo->image != null) {
                     unlink($photo->image);
                 }

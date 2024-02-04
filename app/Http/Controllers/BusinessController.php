@@ -12,13 +12,13 @@ class BusinessController extends Controller
     public function index(){
 
         $business = Business::latest()->paginate(8);
-        return view('admin.Business.index', compact('business'));
+        return view('admin.Business_concern.index', compact('business'));
     }
 
 
     public function create(){
 
-        return view('admin.Business.create');
+        return view('admin.Business_concern.create');
     }
 
 
@@ -35,13 +35,20 @@ class BusinessController extends Controller
                 $image->move('uploads/business', $imageName);
                 $business->image = 'uploads/business/' . $imageName;
             }
+            if ($request->hasfile('logo')) {
+                $image = $request->file('logo');
+                $ext = $image->getClientOriginalExtension();
+                $imageName = rand() . "." . $ext;
+                $image->move('uploads/business', $imageName);
+                $business->logo = 'uploads/business/' . $imageName;
+            }
 
             $business->save();
             return redirect()->route('business.index')->with('success', 'Insert Successful');
 
         } catch (\Throwable $th) {
-            // throw $th;
-            return redirect()->back()->with('error', 'Insert failed');
+            throw $th;
+            // return redirect()->back()->with('error', 'Insert failed');
         }
 
     }
@@ -50,7 +57,7 @@ class BusinessController extends Controller
     public function edit($id){
 
         $business = Business::find($id);
-        return view('admin.Business.edit', compact('business'));
+        return view('admin.Business_concern.edit', compact('business'));
     }
 
 
@@ -71,13 +78,23 @@ class BusinessController extends Controller
                 $image->move('uploads/business', $imageName);
                 $business->image = 'uploads/business/' . $imageName;
             }
+            if ($request->hasfile('logo')) {
+                if(file_exists($business->logo) && $business->logo != null) {
+                    unlink($business->logo);
+                }
+                $image = $request->file('logo');
+                $ext = $image->getClientOriginalExtension();
+                $imageName = rand() . "." . $ext;
+                $image->move('uploads/business', $imageName);
+                $business->logo = 'uploads/business/' . $imageName;
+            }
 
             $business->update();
             return redirect()->route('business.index')->with('success', 'Update Successful');
 
         } catch (\Throwable $th) {
-            // throw $th;
-            return redirect()->back()->with('error', 'Update failed');
+            throw $th;
+            // return redirect()->back()->with('error', 'Update failed');
         }
 
     }

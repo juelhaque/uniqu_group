@@ -11,13 +11,13 @@ class PartnerController extends Controller
     public function index(){
 
         $partner = Partner::latest()->paginate(8);
-        return view('admin.Partner.index', compact('partner'));
+        return view('admin.business_associate.index', compact('partner'));
     }
 
 
     public function create(){
 
-        return view('admin.Partner.create');
+        return view('admin.business_associate.create');
     }
 
 
@@ -45,7 +45,7 @@ class PartnerController extends Controller
     public function edit($id){
 
         $partner = Partner::find($id);
-        return view('admin.partner.edit', compact('partner'));
+        return view('admin.business_associate.edit', compact('partner'));
     }
 
 

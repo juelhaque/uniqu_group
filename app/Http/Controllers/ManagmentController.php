@@ -106,6 +106,5 @@ class ManagmentController extends Controller
             //throw $th;
             return redirect()->back()->with('error', 'Deleted failed');
         }
-
     }
 }

@@ -131,7 +131,7 @@
         <div class="row">
             <div class="col-lg-4 col-sm-6">
                 <div class="corporate-info">
-                    <img style="height: 400px" src="{{asset($hotel_resort->image)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
+                    <img style="height: 400px; width: 100%;" src="{{asset($hotel_resort->image)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
                     <div class="address" data-aos="fade-right" data-aos-duration="2000">
                         <h2>Unique Group <span>(Corporate Office)</span></h2>
                         <p>{{ $company_profile->address }}</p>

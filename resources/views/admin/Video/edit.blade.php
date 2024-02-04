@@ -37,7 +37,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="video" class="form-label">Video</label>
-                                <input type="text" class="form-control" name="video" id="video" value="{{old('video', $videoGallery->video)}}" aria-describedby="emailHelp">
+                                <input type="file" accept="video/*" name="video" id="video" value="{{old('video', $videoGallery->video)}}">
                             </div>
                             @error('video')
                                 <div class="alert alert-danger">{{ $message }}</div>

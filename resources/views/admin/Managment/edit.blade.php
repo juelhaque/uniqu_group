@@ -43,7 +43,7 @@
                                     <label for="title2" class="form-label">Twitter</label>
                                     <input type="text" class="form-control" name="twitter" id="twiter" value="{{ old('twitter', $managment->twitter) }}">
                                     <label for="speech" class="form-label">Speech</label>
-                                    <textarea type="text" class="form-control" name="speech" id="editor" value="{{ old('speech', $managment->speech) }}" placeholder="Enter speech"></textarea>
+                                    <textarea type="text" class="form-control" name="speech" id="editor" value="{{ old('speech', $managment->speech) }}" placeholder="Enter speech">{!!$managment->speech!!}</textarea>
                                 </div>
                             </div>
                             <br>

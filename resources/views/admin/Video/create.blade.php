@@ -25,21 +25,17 @@
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for="title" class="form-label">Video Title</label>
-                                    <input type="text" class="form-control" name="title" id="title" value="" aria-describedby="emailHelp">
+                                    <input type="text" class="form-control" name="title" id="title" value="">
                                 </div>
                                 <div class="col mb-3">
                                     <label for="rank" class="form-label">Video Rank</label>
-                                    <input type="number" class="form-control" name="rank" id="rank" value="" aria-describedby="emailHelp">
+                                    <input type="number" class="form-control" name="rank" id="rank" value="">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="video" class="form-label">Video</label>
-                                <input type="text" class="form-control" name="video" id="video" value="" aria-describedby="emailHelp">
+                                <input type="file" accept="video/*" name="video" id="video" value="">
                             </div>
-                            @error('video')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>
                 </div>
@@ -49,10 +45,10 @@
     <!-- /.card -->
 </section>
 @endsection
-{{--
+
 @push('admin-js')
 
-    <script>
+    {{-- <script>
         let noimage ="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
 
             function readURL(input) {
@@ -68,5 +64,5 @@
                     $("#img-preview").attr("src", noimage);
                 }
             }
-    </script>
-@endpush --}}
+    </script> --}}
+@endpush

@@ -98,7 +98,7 @@
         <!-- data-aos="fade-left" -->
         <div class="container-fluid">
             <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
-                <h2 class="text-white">Our Partners</h2>
+                <h2 class="text-white">Associate Of Business Group</h2>
             </div>
             <div class="partners-wrap owl-theme owl-carousel" data-aos="fade-up" data-aos-duration="1500">
                 @foreach ($partnars as $partnar)

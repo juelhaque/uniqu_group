@@ -19,6 +19,7 @@ class CreateBusinessesTable extends Migration
             $table->string('link');
             $table->text('description');
             $table->string('image');
+            $table->string('logo');
             $table->timestamps();
         });
     }

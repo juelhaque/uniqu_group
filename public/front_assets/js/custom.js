@@ -2,12 +2,12 @@
 // About Section Fade Js
 function reveal() {
 	var reveals = document.querySelectorAll(".reveal");
-  
+
 	for (var i = 0; i < reveals.length; i++) {
 	  var windowHeight = window.innerHeight;
 	  var elementTop = reveals[i].getBoundingClientRect().top;
 	  var elementVisible = 150;
-  
+
 	  if (elementTop < windowHeight - elementVisible) {
 		reveals[i].classList.add("active");
 	  } else {
@@ -15,18 +15,18 @@ function reveal() {
 	  }
 	}
   }
-  
+
   window.addEventListener("scroll", reveal);
 
 // revel Image
 function reveal_img() {
 	var reveals = document.querySelectorAll(".reveal-img");
-  
+
 	for (var i = 0; i < reveals.length; i++) {
 	  var windowHeight = window.innerHeight;
 	  var elementTop = reveals[i].getBoundingClientRect().top;
 	  var elementVisible = 150;
-  
+
 	  if (elementTop < windowHeight - elementVisible) {
 		reveals[i].classList.add("active");
 	  } else {
@@ -34,7 +34,7 @@ function reveal_img() {
 	  }
 	}
   }
-  
+
   window.addEventListener("scroll", reveal_img);
 
 // End About Section Fade Js
@@ -43,7 +43,7 @@ function reveal_img() {
 (function($) {
 	'use strict';
 	// Mean Menu
-	$('.mean-menu').meanmenu({ 
+	$('.mean-menu').meanmenu({
 		meanScreenWidth: "991"
 	});
 
@@ -54,10 +54,10 @@ function reveal_img() {
 
 	// Nice Select JS
 	$('select').niceSelect();
-	
+
 	// Header Sticky
 	$(window).on('scroll', function() {
-		if ($(this).scrollTop() >150){  
+		if ($(this).scrollTop() >150){
 			$('.navbar-area').addClass("is-sticky");
 		}
 		else{
@@ -84,7 +84,7 @@ function reveal_img() {
 	});
 
 	// Partners Wrap
-	$('.partners-wrap').owlCarousel({ 
+	$('.partners-wrap').owlCarousel({
 		loop:true,
 		nav:false,
 		autoplay:true,
@@ -136,11 +136,11 @@ function reveal_img() {
                 loop:true
             },
             1000:{
-                items: 6,
+                items: 10,
                 loop:true
             },
             1200:{
-                items: 6,
+                items: 10,
                 loop:true
             },
 
@@ -165,11 +165,11 @@ function reveal_img() {
                 loop:true
             },
             1000:{
-                items: 6,
+                items: 10,
                 loop:true
             },
             1200:{
-                items: 6,
+                items: 10,
                 loop:true
             },
 
@@ -245,25 +245,32 @@ function reveal_img() {
 
 	// Slider Wrap Five
 	$('.slider-wrap-five').owlCarousel({
-		loop:true,
-		margin:0,
-		nav:true,
-		mouseDrag: false,
-		items:1,
-		dots: false,
-		autoHeight: true,
-		autoplay: true,
-		smartSpeed:1500,
-		autoplayHoverPause: true,
-		animateOut: "slideOutDown",
-		animateIn: "slideInDown",
+		// loop:true,
+		// margin:0,
+		// nav:true,
+		// mouseDrag: false,
+		// items:1,
+		// dots: false,
+        // autoplay: true,
+		// autoHeight: true,
+		// smartSpeed:1500,
+		// autoplayHoverPause: true,
+		// animateOut: "slideOutLeft",
+		// animateIn: "slideInRight",
 		navText: [
-			"<i class='bx bx-chevron-left'></i>",
+            "<i class='bx bx-chevron-left'></i>",
 			"<i class='bx bx-chevron-right'></i>",
 		],
+        // autoplay: true,
+        rtl:false,
+        loop:true,
+        margin:10,
+        nav:true,
+        items:1,
+        smartSpeed:1500,
 	});
 
-	// Odometer 
+	// Odometer
 	$('.odometer').appear(function(e) {
 		var odo = $(".odometer");
 		odo.each(function() {
@@ -278,7 +285,7 @@ function reveal_img() {
 		var scrolled = $(window).scrollTop();
 		if (scrolled > 300) $('.go-top').addClass('active');
 		if (scrolled < 300) $('.go-top').removeClass('active');
-	});  
+	});
 
 	// Click Event
 	$('.go-top').on('click', function() {
@@ -294,17 +301,17 @@ function reveal_img() {
 		// Hide The Other Panels
 		$('.accordion-content').not($(this).next()).slideUp('fast');
 		// Removes Active Class From Other Titles
-		$('.accordion-title').not($(this)).removeClass('active');		
+		$('.accordion-title').not($(this)).removeClass('active');
 	});
 
-	// Count Time 
+	// Count Time
 	function makeTimer() {
-		var endTime = new Date("march  30, 2021 17:00:00 PDT");			
+		var endTime = new Date("march  30, 2021 17:00:00 PDT");
 		var endTime = (Date.parse(endTime)) / 1000;
 		var now = new Date();
 		var now = (Date.parse(now) / 1000);
 		var timeLeft = endTime - now;
-		var days = Math.floor(timeLeft / 86400); 
+		var days = Math.floor(timeLeft / 86400);
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
 		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
 		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
@@ -321,10 +328,10 @@ function reveal_img() {
 	// Animation
 	new WOW().init();
 
-	// Tabs 
+	// Tabs
 	$('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
 	$('.tab ul.tabs li').on('click', function (g) {
-		var tab = $(this).closest('.tab'), 
+		var tab = $(this).closest('.tab'),
 		index = $(this).closest('li').index();
 		tab.find('ul.tabs > li').removeClass('current');
 		$(this).closest('li').addClass('current');
@@ -332,7 +339,7 @@ function reveal_img() {
 		tab.find('.tab_content').find('div.tabs_item:eq(' + index + ')').slideDown();
 		g.preventDefault();
 	});
-		
+
 	// Popup Video
 	$('.popup-youtube, .popup-vimeo').magnificPopup({
 		disableOn: 300,
@@ -383,16 +390,16 @@ function reveal_img() {
 		}
 		$("#validator-newsletter").removeClass().addClass(msgClasses).text(msg);
 	}
-	
+
 	// AJAX MailChimp
 	$(".newsletter-form").ajaxChimp({
 		url: "https://envytheme.us20.list-manage.com/subscribe/post?u=60e1ffe2e8a68ce1204cd39a5&amp;id=42d6d188d9", // Your url MailChimp
 		callback: callbackFunction
 	});
-	
+
 	// MixItUp Shorting
 	$('.shorting').mixItUp();
-	
+
 	// Search Popup JS
 	$('.close-btn').on('click',function() {
 		$('.search-overlay').fadeOut();
@@ -413,7 +420,7 @@ function reveal_img() {
 		btnDown = spinner.find('.minus-btn'),
 		min = input.attr('min'),
 		max = input.attr('max');
-		
+
 		btnUp.on('click', function() {
 			var oldValue = parseFloat(input.val());
 			if (oldValue >= max) {

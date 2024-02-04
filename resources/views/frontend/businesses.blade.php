@@ -7,7 +7,7 @@
 <div class="page-title-area bg-17">
     <div class="container">
         <div class="page-title-content">
-            <h2 data-aos="fade-left" data-aos-duration="1000">Business of Unique Group</h2>
+            <h2 data-aos="fade-left" data-aos-duration="1000">Business Concern Of Unique Group</h2>
             <ul data-aos="fade-right" data-aos-duration="1000">
                 <li><a href="{{ route('frontend.home') }}">Home</a></li>
                 <li>{{$businesses->name}}</li>

@@ -11,7 +11,7 @@ class VideoController extends Controller
 
     public function index(){
 
-        $videoGalleries = Video::orderBy('rank', 'ASC')->latest()->paginate(10);
+        $videoGalleries = Video::orderBy('rank', 'ASC')->latest()->paginate(8);
         return view('admin.video.index', compact('videoGalleries'));
     }
 
@@ -23,13 +23,17 @@ class VideoController extends Controller
 
 
     public function store(Request $request){
-
         try {
             $videoGalleries = new Video();
             $videoGalleries->title = $request->title;
             $videoGalleries->rank = $request->rank;
-            $videoGalleries->video = $request->video;
-
+            if ($request->hasfile('video')) {
+                $video = $request->file('video');
+                $ext = $video->getClientOriginalExtension();
+                $videoName = rand() . "." . $ext;
+                $video->move('uploads/video', $videoName);
+                $videoGalleries->video = 'uploads/video/' . $videoName;
+            }
             $videoGalleries->save();
             return redirect()->route('video-gallery.index')->with('success', 'Insert Successful');
 
@@ -53,8 +57,16 @@ class VideoController extends Controller
             $videoGalleries = Video::find($id);
             $videoGalleries->title = $request->title;
             $videoGalleries->rank = $request->rank;
-            $videoGalleries->video = $request->video;
-
+            if ($request->hasfile('video')) {
+                if(file_exists($videoGalleries->video) && $videoGalleries->video != null) {
+                    unlink($videoGalleries->video);
+                }
+                $video = $request->file('video');
+                $ext = $video->getClientOriginalExtension();
+                $videoName = rand() . "." . $ext;
+                $video->move('uploads/video', $videoName);
+                $videoGalleries->video = 'uploads/video/' . $videoName;
+            }
             $videoGalleries->update();
             return redirect()->route('video-gallery.index')->with('success', 'Update Successful');
 
@@ -70,7 +82,9 @@ class VideoController extends Controller
 
         try {
             $videoGalleries = Video::find($id);
-
+            if (file_exists($videoGalleries->video) && $videoGalleries->video != null) {
+                unlink($videoGalleries->video);
+            }
             $videoGalleries->delete();
 
             return redirect()->route('video-gallery.index')->with('success', 'Deleted Successful');

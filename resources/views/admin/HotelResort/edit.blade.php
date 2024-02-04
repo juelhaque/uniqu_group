@@ -29,7 +29,7 @@
                                     <input type="text" class="form-control" name="title" id="name" value="{{ old('title', $hotelResort->title) }}" placeholder="Enter Title">
 
                                     <label for="details" class="form-label">Details</label>
-                                    <textarea type="text" class="form-control" name="details" id="editor" value="{{ old('details', $hotelResort->details) }}" placeholder="Enter Details"></textarea>
+                                    <textarea type="text" class="form-control" name="details" id="editor" value="{{ old('details', $hotelResort->details) }}" placeholder="Enter Details">{!!$hotelResort->details!!}</textarea>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label style="margin-top:2rem" for="file">Image Size <span style="color: red">(330*247)</span>px</label>

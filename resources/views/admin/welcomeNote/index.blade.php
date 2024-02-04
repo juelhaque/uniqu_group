@@ -29,58 +29,61 @@
                                     <label for="welcome_note" class="form-label">Welcome Title</label>
                                     <input type="text" class="form-control form-control-sm" name="welcome_note"
                                         id="welcome_note" value="{{ old('welcome_note', $details->welcome_note) }}">
+
+                                    <div class="row">
+                                        <div class="col-6 mb-1 mt-2">
+                                            <div class="form-check mb-2">
+                                                <label for="file">Welcome Image</label><br>
+                                                <input type="file" name="about_image" accept="image/*"
+                                                    onchange="readURL(this)" />
+                                            </div>
+                                            <img id="img-preview" src="{{ asset($details->about_image) }}" width="200px"
+                                                height="150px" />
+                                        </div>
+                                        <div class="col-6 mb-1 mt-2">
+                                            <div class="form-check mb-2">
+                                                <label for="file">Welcome Image2</label><br>
+                                                <input type="file" name="about_image2" accept="image/*"
+                                                    onchange="readURL2(this)" />
+                                            </div>
+                                            <img id="img-preview2" src="{{asset($details->about_image2) }}" width="200px"
+                                                height="150px" />
+                                        </div>
+                                        <div class="col-6 mb-1">
+                                            <div class="form-check mb-2">
+                                                <label for="file">Welcome Image3</label><br>
+                                                <input type="file" name="about_image3" accept="image/*"
+                                                    onchange="readURL3(this)" />
+                                            </div>
+                                            <img id="img-preview3" src="{{asset($details->about_image3) }}" width="200px"
+                                                height="150px" />
+                                        </div>
+                                        <div class="col-6 mb-1">
+                                            <div class="form-check mb-2">
+                                                <label for="file">Welcome Image4</label><br>
+                                                <input type="file" name="about_image4" accept="image/*"
+                                                    onchange="readURL4(this)" />
+                                            </div>
+                                            <img id="img-preview4" src="{{ asset($details->about_image4) }}" width="200px"
+                                                height="150px" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-6 mb-1">
+                                {{-- <div class="col-6 mb-1">
                                     <label for="accessories" class="form-label">Point 1</label>
                                     <textarea class="form-control form-control-sm" name="accessories" id="editor2"cols="4" rows="4">
                                         {{ old('accessories', $details->accessories) }}</textarea>
-                                </div>
+                                </div> --}}
                                 <div class="col-6 mb-1">
                                     <label for="about_description" class="mt-2 form-label">Welcome Description</label>
                                     <textarea class="form-control form-control-sm" name="about_description" id="editor"cols="4" rows="4">
                                         {{ old('about_description', $details->about_description) }}</textarea>
                                 </div>
-                                <div class="col-6 mb-1">
+                                {{-- <div class="col-6 mb-1">
                                     <label for="analysis" class="mt-2 form-label">Point 2</label>
                                     <textarea class="form-control form-control-sm" name="analysis" id="editor3"cols="4" rows="4">
                                         {{ old('analysis', $details->analysis) }}</textarea>
-                                </div>
-                                <div class="col-sm-6 mb-1 mt-2">
-                                    <div class="form-check mb-2">
-                                        <label for="file">Welcome Image</label><br>
-                                        <input type="file" name="about_image" accept="image/*"
-                                            onchange="readURL(this)" />
-                                    </div>
-                                    <img id="img-preview" src="{{ asset($details->about_image) }}" width="200px"
-                                        height="150px" />
-                                </div>
-                                <div class="col-sm-6 mb-1 mt-2">
-                                    <div class="form-check mb-2">
-                                        <label for="file">Welcome Image2</label><br>
-                                        <input type="file" name="about_image2" accept="image/*"
-                                            onchange="readURL2(this)" />
-                                    </div>
-                                    <img id="img-preview2" src="{{asset($details->about_image2) }}" width="200px"
-                                        height="150px" />
-                                </div>
-                                <div class="col-6 mb-1">
-                                    <div class="form-check mb-2">
-                                        <label for="file">Welcome Image3</label><br>
-                                        <input type="file" name="about_image3" accept="image/*"
-                                            onchange="readURL3(this)" />
-                                    </div>
-                                    <img id="img-preview3" src="{{asset($details->about_image3) }}" width="200px"
-                                        height="150px" />
-                                </div>
-                                <div class="col-6 mb-1">
-                                    <div class="form-check mb-2">
-                                        <label for="file">Welcome Image4</label><br>
-                                        <input type="file" name="about_image4" accept="image/*"
-                                            onchange="readURL4(this)" />
-                                    </div>
-                                    <img id="img-preview4" src="{{ asset($details->about_image4) }}" width="200px"
-                                        height="150px" />
-                                </div>
+                                </div> --}}
                             </div>
                             <br>
                             @if (Auth::user()->role != 2)
