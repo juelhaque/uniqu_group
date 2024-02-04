@@ -109,7 +109,7 @@
                     <div class="m-2">
                         <div class="card work-hover">
                             <a href="{{route('frontend.business_entities',['id' => $item->id])}}">
-                                <img src="{{ asset($item->logo) }}" class="work-image" alt="clients">
+                                <img src="{{ asset($item->logo) }}" class="work-image" alt="clients" style="height: 77px;">
                             </a>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                     <div class="col-md-3 col-6 mb-4" data-aos="zoom-in-up" data-aos-duration="1500">
                         <div class="cards">
                             <div class="cards_item">
-                                <div class="card" tabindex="0">
+                                <div class="card" tabindex="0" style="height: 460px; width: 100%">
                                     <div class="card_image">
                                         <a href="">
                                             <img src="{{ asset($item->image) }}" class="img-fluid w-100" alt="">
@@ -222,12 +222,12 @@
                         </h2>
                     </div>
                 </div>
-                <div class="col-md-2 col-6" data-aos="fade-right" data-aos-duration="1500">
+                <div class="col-md-3 col-6" data-aos="fade-left" data-aos-duration="1500">
                     <div class="single-counter">
-                        <i class="flaticon-team"></i>
+                        <i class="flaticon-trophy"></i>
                         <h2>
-                            <span class="odometer" data-count="{{ $achievments->company_data }}">00</span>
-                            <span class="target">+ {{ $achievments->company }}</span>
+                            <span class="odometer" data-count="{{ $achievments->business_data }}">00</span>
+                            <span class="traget">+ {{ $achievments->business }}</span>
                         </h2>
                     </div>
                 </div>
@@ -236,12 +236,12 @@
                         <img src="{{ asset($company_profile->company_logo) }}" class="img-fluid" alt="">
                     </div>
                 </div>
-                <div class="col-md-3 col-6" data-aos="fade-left" data-aos-duration="1500">
+                <div class="col-md-2 col-6" data-aos="fade-right" data-aos-duration="1500">
                     <div class="single-counter">
-                        <i class="flaticon-trophy"></i>
+                        <i class="flaticon-team"></i>
                         <h2>
-                            <span class="odometer" data-count="{{ $achievments->business_data }}">00</span>
-                            <span class="traget">+ {{ $achievments->business }}</span>
+                            <span class="odometer" data-count="{{ $achievments->company_data }}">00</span>
+                            <span class="target">+ {{ $achievments->company }}</span>
                         </h2>
                     </div>
                 </div>
@@ -293,7 +293,7 @@
             <div class="partners-wrap owl-theme owl-carousel" data-aos="fade-up" data-aos-duration="1500">
                 @foreach ($partnars as $partnar)
                     <div class="partners-item">
-                        <a href="#"><img src="{{ asset($partnar->image) }}" alt="Image"></a>
+                        <a href="#"><img style="height: 86px" src="{{ asset($partnar->image) }}" alt="Image"></a>
                     </div>
                 @endforeach
             </div>
@@ -311,7 +311,7 @@
             </div>
 
             <div class="row align-items-center">
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <div class="contact-wrap" data-aos="zoom-in" data-aos-duration="1500">
                         <h3>Make An Appointment</h3>
                         <div id="msgSubmit">
@@ -370,23 +370,23 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <div class="appointment-content" data-aos="zoom-in" data-aos-duration="1500">
                         <img src="{{ asset($business_query->about_banner) }}" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="shape" data-aos="flip-right" data-aos-duration="1500">
+        {{-- <div class="shape" data-aos="flip-right" data-aos-duration="1500">
             <img src="{{ asset('front_assets') }}/img/home-two/appoinment-img.png" alt="Image">
-        </div>
+        </div> --}}
     </section>
     <!-- End Send Business Queries Area -->
 
 
     <!-- Start Map Info Area -->
     <section class="map-info-area py-4">
-        <div class="container-fluid">
+        <div class="container-fluid" style="height: 500px">
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="row corporate-info">
@@ -394,13 +394,13 @@
                             <img src="{{asset($company_profile->company_logo)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
                         </div>
                         <div class="col-12" style="text-align: center; ">
-                            <img style="width: 87%; height: 218px;" src="{{asset('front_assets/img/shop/11.jpg')}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
+                            <img style="width: 100%; height: 400px;" src="{{asset($maps->image)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8 col-sm-6" data-aos="zoom-in-right" data-aos-duration="2000">
                     <div class="corporate-map">
-                        <iframe src="{{ asset($maps->map) }}" width="100%" style="border:0;" allowfullscreen=""
+                        <iframe src="{{ asset($maps->map) }}" width="100%" style="border:0; height: 500px;" allowfullscreen=""
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>

@@ -20,6 +20,17 @@ class MapController extends Controller
         try {
             $mapp=Map::find($id);
             $mapp->map = $request->map;
+            if ($request->hasfile('image')) {
+
+                if(file_exists($mapp->image) && $mapp->image != null) {
+                    unlink($mapp->image);
+                }
+                $image = $request->file('image');
+                $ext = $image->getClientOriginalExtension();
+                $imageName = rand() . "." . $ext;
+                $image->move('uploads/map', $imageName);
+                $mapp->image = 'uploads/map/' . $imageName;
+            }
             $mapp->update();
             return redirect()->route('dashboard')->with('success', 'Update Successful');
 

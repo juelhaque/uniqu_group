@@ -24,7 +24,7 @@
                         @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3 form-check">
-                                    <label for="file">Image Size <span style="color: red">(146*97)</span>px</label>
+                                    <label for="file">Image Size <span style="color: red">(137*86)</span>px</label>
                                     <input type="file" name="image" accept="image/*" onchange="readURL(this)" required/>
                                     <img id="img-preview" src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png" width="250px" height="180px" />
                                 </div>

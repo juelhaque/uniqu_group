@@ -3663,6 +3663,7 @@ Partners Area Four Style
 .partners-area .partners-item::before {
   content: '';
   position: absolute;
+  left: 20px;
   width: 202%;
   height: 150%;
   background: repeating-linear-gradient(
@@ -7600,7 +7601,7 @@ Banner Area Style
 .card_image img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 232px;
   object-fit: cover;
 }
 

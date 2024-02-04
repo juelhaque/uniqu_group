@@ -20,13 +20,18 @@
                     <div class="p-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <form action="{{ route('map.update', $mapp->id) }}" method="POST"
-                                    enctype="multipart/form-data">
+                                <form action="{{ route('map.update', $mapp->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="justify-content-start">
                                         <div>
                                             <textarea class="form-control" name="map" rows="6">{{ old('map', $mapp->map) }}</textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label style="margin-top:2rem" for="file">Map Image</label>
+                                            <input type="file" name="image" accept="image/*" onchange="readURL(this)" />
+                                            <img id="img-preview" src="{{ asset($mapp->image) }}" width="250px"
+                                                height="180px" />
                                         </div>
                                         <br>
                                         @if (Auth::user()->role != 2)
@@ -52,3 +57,21 @@
         <!-- /.card -->
     </section>
 @endsection
+
+@push('admin-js')
+<script>
+    let noimage = "https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
+    function readURL(input) {
+        console.log(input.files);
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $("#img-preview").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            $("#img-preview").attr("src", noimage);
+        }
+    }
+</script>
+@endpush
