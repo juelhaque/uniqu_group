@@ -147,15 +147,15 @@
                             <div class="cards_item">
                                 <div class="card" tabindex="0" style="height: 460px; width: 100%">
                                     <div class="card_image">
-                                        <a href="">
+                                        <a href="{{route('frontend.hotel_resort_details', $item->id)}}">
                                             <img src="{{ asset($item->image) }}" class="img-fluid w-100" alt="">
                                         </a>
                                     </div>
                                     <div class="card_content" data-aos="zoom-out-down" data-aos-duration="1500">
                                         <div class="card_text">
                                             <span class="note">{{ $item->title }}</span>
-                                            <p>{!! $item->details !!}</p>
-                                            <a href="" class="read-more text-white">Read More<i
+                                            <p>{!! \Illuminate\Support\Str::limit( $item->details , 120, $end='...') !!}</p>
+                                            <a href="{{route('frontend.hotel_resort_details', $item->id)}}" class="read-more text-white">Read More<i
                                                     class="bx bx-plus"></i></a>
                                         </div>
                                     </div>

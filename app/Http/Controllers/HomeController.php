@@ -69,6 +69,13 @@ class HomeController extends Controller
     }
 
 
+    public function hotelResortDetails($id)
+    {
+        $data['hotel_resort'] = HotelResort::find($id);
+        return view('frontend.hotelResortDetails', $data);
+    }
+
+
     public function career()
     {
         $data['careers'] = Career::first();

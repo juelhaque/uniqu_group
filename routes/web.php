@@ -39,6 +39,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('frontend.conta
 Route::get('/photos', [HomeController::class, 'photo'])->name('frontend.photo');
 Route::get('/news-events', [HomeController::class, 'newsEvent'])->name('frontend.news_events');
 Route::get('/news-event-details/{id}', [HomeController::class, 'newsEventDetails'])->name('frontend.news_event_details');
+Route::get('/hotel-resort-details/{id}', [HomeController::class, 'hotelResortDetails'])->name('frontend.hotel_resort_details');
 Route::get('/career', [HomeController::class, 'career'])->name('frontend.career');
 Route::get('/business-entities/{id}', [HomeController::class, 'businessEntities'])->name('frontend.business_entities');
 Route::get('/charter-of-unique-group', [HomeController::class, 'charter'])->name('frontend.charters');

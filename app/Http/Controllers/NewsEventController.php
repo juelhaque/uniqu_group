@@ -58,7 +58,6 @@ class NewsEventController extends Controller
 
         try {
             $NewsEvent = NewsEvent::find($id);
-
             $NewsEvent->date = $request->date;
             $NewsEvent->title = $request->title;
             $NewsEvent->details = $request->details;

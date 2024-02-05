@@ -29,7 +29,6 @@ class HotelResortController extends Controller
             $hotelResort->title = $request->title;
             $hotelResort->details = $request->details;
 
-
             if ($request->hasfile('image')) {
                 $image = $request->file('image');
                 $ext = $image->getClientOriginalExtension();
@@ -59,7 +58,6 @@ class HotelResortController extends Controller
 
         try {
             $hotelResort = HotelResort::find($id);
-
             $hotelResort->title = $request->title;
             $hotelResort->details = $request->details;
 
@@ -100,6 +98,5 @@ class HotelResortController extends Controller
             //throw $th;
             return redirect()->back()->with('error', 'Deleted failed');
         }
-
     }
 }
