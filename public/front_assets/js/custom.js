@@ -262,7 +262,7 @@ function reveal_img() {
 			"<i class='bx bx-chevron-right'></i>",
 		],
         // autoplay: true,
-        rtl:false,
+        rtl:true,
         loop:true,
         margin:10,
         nav:true,

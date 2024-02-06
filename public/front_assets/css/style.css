@@ -7601,7 +7601,7 @@ Banner Area Style
 .card_image img {
   display: block;
   width: 100%;
-  height: 232px;
+  height: auto;
   object-fit: cover;
 }
 

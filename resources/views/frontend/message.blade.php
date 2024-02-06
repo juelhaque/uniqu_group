@@ -35,8 +35,7 @@
                 <div class="rainbow mt-lg-5">
                     <div class="about_img">
                         <div class="col_img" style="width: 100%">
-                            <img src="{{asset($messages->image)}}" class="w-100"
-                                alt="">
+                            <img src="{{asset($messages->image)}}" class="w-100" alt="">
                         </div>
                     </div>
                 </div>

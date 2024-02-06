@@ -67,7 +67,7 @@
 
     <!-- Start Our Management Area -->
     <section class="our-team-area pt-4">
-        <div class="container-fluid">
+        <div class="container">
             <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
                 <h2 class="text-white">Our Management</h2>
             </div>
@@ -103,7 +103,7 @@
             </div>
         </div>
         {{-- data-aos="fade-down" data-aos-duration="1000" --}}
-        <div class="container-fluid ps-0 pe-0">
+        <div class="container ps-0 pe-0">
             <div class="clients-slider owl-carousel owl-theme" >
                 @foreach ($business_companies as $item)
                     <div class="m-2">
@@ -136,7 +136,7 @@
     <!-- Start Hotel & Resorts Area -->
     <section class="news-area py-4">
         <!-- data-aos="flip-left" -->
-        <div class="container-fluid">
+        <div class="container">
             <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
                 <h2>Unique Hotel & Resorts Ltd.</h2>
             </div>
@@ -145,7 +145,7 @@
                     <div class="col-md-3 col-6 mb-4" data-aos="zoom-in-up" data-aos-duration="1500">
                         <div class="cards">
                             <div class="cards_item">
-                                <div class="card" tabindex="0" style="height: 460px; width: 100%">
+                                <div class="card" tabindex="0">
                                     <div class="card_image">
                                         <a href="{{route('frontend.hotel_resort_details', $item->id)}}">
                                             <img src="{{ asset($item->image) }}" class="img-fluid w-100" alt="">
@@ -173,7 +173,7 @@
     <!-- Video Gallery Area -->
     <section class="video_gallery_section py-4 jarallax">
         <!-- data-aos="fade-right" -->
-        <div class="container-fluid">
+        <div class="container">
             <div class="section-title white-title" data-aos="zoom-in-down" data-aos-duration="1500">
                 <h2>Video Gallery</h2>
             </div>
@@ -211,7 +211,7 @@
 
     <!-- Start Counter Area -->
     <section class="counter-area pt-4 pb-0">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-2 col-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="single-counter">
@@ -263,7 +263,7 @@
     <!-- Photo Gallery Area -->
     <section class="photo_gallery_section pt-4 pb-3">
         <!-- data-aos="fade-right" -->
-        <div class="container-fluid">
+        <div class="container">
             <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
                 <h2>Photo Gallery</h2>
             </div>
@@ -286,14 +286,14 @@
     <!-- Start Partners Area -->
     <div class="partners-area py-4">
         <!-- data-aos="fade-left" -->
-        <div class="container-fluid">
+        <div class="container">
             <div class="section-title" data-aos="zoom-in-down" data-aos-duration="1500">
                 <h2 class="text-white">Business Associates</h2>
             </div>
             <div class="partners-wrap owl-theme owl-carousel" data-aos="fade-up" data-aos-duration="1500">
                 @foreach ($partnars as $partnar)
                     <div class="partners-item">
-                        <a href="#"><img style="height: 86px" src="{{ asset($partnar->image) }}" alt="Image"></a>
+                        <a href="#"><img src="{{ asset($partnar->image) }}" alt="Image"></a>
                     </div>
                 @endforeach
             </div>
@@ -386,15 +386,15 @@
 
     <!-- Start Map Info Area -->
     <section class="map-info-area py-4">
-        <div class="container-fluid" style="height: 500px">
+        <div class="container" style="height: 500px">
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="row corporate-info">
-                        <div class="col-12" style="text-align: center; ">
+                        {{-- <div class="col-12" style="text-align: center; ">
                             <img src="{{asset($company_profile->company_logo)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
-                        </div>
+                        </div> --}}
                         <div class="col-12" style="text-align: center; ">
-                            <img style="width: 100%; height: 400px;" src="{{asset($maps->image)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
+                            <img style="width: 100%; height: 500px;" src="{{asset($maps->image)}}" alt="Image" data-aos="zoom-in-down" data-aos-duration="2000">
                         </div>
                     </div>
                 </div>
